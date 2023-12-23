@@ -1,0 +1,54 @@
+:root {
+  :root {
+    --size-10: 0.625rem;
+    --size-14: 0.875rem;
+    --size-16: 1rem;
+    --size-18: 1.125rem;
+    --size-20: 1.25rem;
+    --size-30: 1.875rem;
+    --size-40: 2.5rem;
+    --size-50: 3.125rem;
+    --size-100: 6.25rem;
+    --size-150: 9.375rem;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  font-family: "Intern", sans-serif;
+}
+
+.ul-defaults-none {
+  list-style: none;
+}
+
+.btn {
+  background: none;
+  border: 2px solid black;
+  padding: 0.535rem 1.5rem;
+  border-radius: 50rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #999;
+  color: #fff;
+  transform: scale(1.1);
+  box-shadow: 5px 3px 27px -2px rgba(22, 22, 22, 0.2);
+}
+
+a {
+  text-decoration: none;
+  pointer-events: none;
+}
