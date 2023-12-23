@@ -30,6 +30,8 @@ body {
 
 .ul-defaults-none {
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .btn {
@@ -39,6 +41,9 @@ body {
   border-radius: 50rem;
   cursor: pointer;
   transition: transform 0.2s;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn:hover {
@@ -51,4 +56,14 @@ body {
 a {
   text-decoration: none;
   pointer-events: none;
+  background: transparent;
+}
+
+main,
+header,
+footer,
+nav,
+section,
+aside {
+  display: block;
 }
