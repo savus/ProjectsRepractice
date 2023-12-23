@@ -1,18 +1,26 @@
+import { MainHeader } from "./components/ToDoListApp.tsx/MainHeader";
 import "./css/base.css";
+import "./css/styles.css";
+import "./css/theme.css";
+
+const portfolioData = [
+  { title: "Home Development", dataFilter: "web" },
+  { title: "Home Development", dataFilter: "web" },
+  { title: "Home Development", dataFilter: "web" },
+  { title: "Home Development", dataFilter: "web" },
+  { title: "Home Development", dataFilter: "web" },
+];
 
 function App() {
   return (
     <>
-      <main id="toDoListApp">
-        <header>
-          <div className="logo">To Do List</div>
+      <main>
+        <header className="main-header">
           <nav className="navbar">
-            <ul className="navbar-nav">
-              <li>Item1</li>
-            </ul>
+            <div className="logo">Logo</div>
+            <ul className="navbar-nav"></ul>
           </nav>
         </header>
-        <button className="btn">Test Button</button>
       </main>
     </>
   );
