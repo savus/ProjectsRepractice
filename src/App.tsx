@@ -16,6 +16,21 @@ function App() {
     <>
       <main>
         <NavbarHeader />
+        <aside className="list-container">
+          <div className="list-tab">
+            <i className="fa-solid fa-chevron-up"></i>
+          </div>
+          <div className="list-items">
+            <ul>
+              <li className="list-item">Item</li>
+              <li className="list-item">Item</li>
+              <li className="list-item">Item</li>
+              <li className="list-item">Item</li>
+              <li className="list-item">Item</li>
+              <li className="list-item">Item</li>
+            </ul>
+          </div>
+        </aside>
       </main>
     </>
   );
