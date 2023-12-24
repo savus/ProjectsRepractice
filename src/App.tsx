@@ -1,4 +1,4 @@
-import { MainHeader } from "./components/ToDoListApp.tsx/MainHeader";
+import { NavbarHeader } from "./components/NavbarHeader";
 import "./css/base.css";
 import "./css/styles.css";
 import "./css/theme.css";
@@ -15,12 +15,7 @@ function App() {
   return (
     <>
       <main>
-        <header className="main-header">
-          <nav className="navbar">
-            <div className="logo">Logo</div>
-            <ul className="navbar-nav"></ul>
-          </nav>
-        </header>
+        <NavbarHeader />
       </main>
     </>
   );

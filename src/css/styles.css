@@ -1,0 +1,28 @@
+.main-header {
+  background-color: var(--bg-black);
+  color: var(--font-color-white);
+}
+
+.navbar,
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left: 1rem;
+  margin-right: auto;
+}
+
+.navbar-nav li {
+  padding: 0.825rem 1rem;
+  cursor: pointer;
+}
+.navbar-nav li:hover {
+  background-color: var(--bg-white);
+  color: var(--font-color-dark);
+}
