@@ -21,7 +21,7 @@ function App() {
             <i className="fa-solid fa-chevron-up"></i>
           </div>
           <div className="list-items">
-            <ul>
+            <ul className="ul-defaults-none">
               <li className="list-item">Item</li>
               <li className="list-item">Item</li>
               <li className="list-item">Item</li>

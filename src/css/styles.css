@@ -26,3 +26,18 @@
   background-color: var(--bg-white);
   color: var(--font-color-dark);
 }
+
+.list-container {
+  display: inline-block;
+  background-color: beige;
+  border: 1px solid black;
+  width: 400px;
+  position: relative;
+}
+
+.list-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+}
