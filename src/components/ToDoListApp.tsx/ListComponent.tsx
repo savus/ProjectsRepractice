@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { ToDoItem } from "./ListItem";
+import { ToDoItem } from "./ToDoItem";
 import { ListItem } from "../../types";
 
 export class ListComponent extends Component<{ itemsList: ListItem[] }> {
