@@ -11,7 +11,7 @@ export class ListComponent extends Component<{ itemsList: ListItem[] }> {
           <div className="to-do-list">
             <header className="list-header">
               <div>To Do List</div>
-              <button className="add-item-button">X</button>
+              <button className="add-item-button">+</button>
             </header>
 
             <div className="list-body">

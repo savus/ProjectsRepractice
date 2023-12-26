@@ -50,7 +50,7 @@
   text-align: center;
 }
 
-.list-header button {
+.list-header .add-item-button {
   position: absolute;
   right: 20px;
   top: 50%;
@@ -59,9 +59,35 @@
   color: var(--bg-white);
   font-size: var(--size-20);
   font-weight: 400;
-  padding: 0.3rem 0.6rem;
-  border: 1px solid var(--bg-white);
+  padding: 0.3rem 0.7rem;
   border-radius: 8px;
+  border: 1px solid black;
+  box-shadow: inset 0px 0px 2px 2px rgba(255, 255, 255, 0.4),
+    0px 0px 2px 2px rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+
+.list-header .add-item-button:hover {
+  border: 1px solid var(--bg-white);
+  background-color: #333;
+}
+
+.list-header .add-item-button:active {
+  background-color: var(--bg-white);
+  color: var(--font-color-dark);
+}
+
+.list-header .add-item-tooltip {
+  position: absolute;
+  font-size: var(--size-14);
+  top: 50%;
+  right: 24%;
+  transform: translateY(-50%);
+  transition: 0.3s;
+}
+
+.add-item-tooltip i {
+  transform: rotate(90deg);
 }
 
 .list-items .list-item {
