@@ -1,7 +1,10 @@
 import { Component } from "react";
+import { ToDoItem } from "./ListItem";
+import { ListItem } from "../../types";
 
-export class ListComponent extends Component {
+export class ListComponent extends Component<{ itemsList: ListItem[] }> {
   render() {
+    const { itemsList } = this.props;
     return (
       <>
         <div className="list-container">
@@ -14,22 +17,9 @@ export class ListComponent extends Component {
             <div className="list-body">
               <div className="list-items">
                 <ul className="ul-defaults-none">
-                  <li className="list-item">
-                    <div className="item-text">Item 1</div>
-                    <input type="text" id="item1" />
-                    <div className="btn-group">
-                      <button className="edit-button btn">Edit</button>
-                      <button className="delete-button btn">Delete</button>
-                    </div>
-                  </li>
-                  <li className="list-item">
-                    <div className="item-text">Item 1</div>
-                    <input type="text" id="item1" />
-                    <div className="btn-group">
-                      <button className="edit-button btn">Edit</button>
-                      <button className="delete-button btn">Delete</button>
-                    </div>
-                  </li>
+                  {itemsList.map((item) => (
+                    <ToDoItem key={item.id} item={item} />
+                  ))}
                 </ul>
               </div>
               <div className="open-list-tab">

@@ -9,10 +9,10 @@ import { ListComponent } from "./components/ToDoListApp.tsx/ListComponent";
 
 const anchorLinks = [
   { name: "Item 1", address: "#" },
-  { name: "Item 1", address: "#" },
-  { name: "Item 1", address: "#" },
-  { name: "Item 1", address: "#" },
-  { name: "Item 1", address: "#" },
+  { name: "Item 2", address: "#" },
+  { name: "Item 3", address: "#" },
+  { name: "Item 4", address: "#" },
+  { name: "Item 5", address: "#" },
 ];
 
 const portfolioData = [
@@ -37,8 +37,8 @@ function App() {
   return (
     <>
       <main>
-        <NavbarHeader logo={"To Do List"} links={anchorLinks} />
-        <ListComponent />
+        <NavbarHeader logo={"Logo"} links={anchorLinks} />
+        <ListComponent itemsList={listItems} />
       </main>
     </>
   );
