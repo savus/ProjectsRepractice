@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
+import { ToDoListRequests } from "./api";
 import { NavbarHeader } from "./components/NavbarHeader";
 import "./css/base.css";
 import "./css/styles.css";
 import "./css/theme.css";
+import { ListItem } from "./types";
+import { ListComponent } from "./components/ToDoListApp.tsx/ListComponent";
+
+const anchorLinks = [
+  { name: "Item 1", address: "#" },
+  { name: "Item 1", address: "#" },
+  { name: "Item 1", address: "#" },
+  { name: "Item 1", address: "#" },
+  { name: "Item 1", address: "#" },
+];
 
 const portfolioData = [
   { title: "Home Development", dataFilter: "web" },
@@ -12,25 +24,21 @@ const portfolioData = [
 ];
 
 function App() {
+  const [listItems, setListItems] = useState<ListItem[]>([]);
+
+  const refetchData = () => {
+    return ToDoListRequests.getAllListItems().then(setListItems);
+  };
+
+  useEffect(() => {
+    refetchData();
+  }, []);
+
   return (
     <>
       <main>
-        <NavbarHeader />
-        <aside className="list-container">
-          <div className="list-tab">
-            <i className="fa-solid fa-chevron-up"></i>
-          </div>
-          <div className="list-items">
-            <ul className="ul-defaults-none">
-              <li className="list-item">Item</li>
-              <li className="list-item">Item</li>
-              <li className="list-item">Item</li>
-              <li className="list-item">Item</li>
-              <li className="list-item">Item</li>
-              <li className="list-item">Item</li>
-            </ul>
-          </div>
-        </aside>
+        <NavbarHeader logo={"To Do List"} links={anchorLinks} />
+        <ListComponent />
       </main>
     </>
   );
