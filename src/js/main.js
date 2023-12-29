@@ -1,10 +1,34 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const useJavascript = true;
+  const useJavascript = false;
   if (useJavascript) {
     const open = "open";
     const dataToggle = "[data-toggle]";
+    const active = "active";
     const confirmButton = "confirm-button";
     const cancelButton = "cancel-button";
+    const navbarClass = ".navbar";
+    const navbarLink = ".navbar-link";
+
+    const setActive = (element, selector) => {
+      if (document.querySelector(`${selector}.${active}`) !== null) {
+        document
+          .querySelector(`${selector}.${active}`)
+          .classList.remove(active);
+      }
+      element.classList.add(active);
+    };
+
+    /* main header */
+
+    const navbar = document.querySelector(navbarClass);
+
+    navbar.addEventListener("click", function (e) {
+      const target = e.target;
+      if (target.className.includes("navbar-link")) {
+        setActive(target, navbarLink);
+      }
+    });
+
     /* TO DO LIST APP */
 
     const addItemButtonClass = ".add-item-button";

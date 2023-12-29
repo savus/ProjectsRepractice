@@ -2,15 +2,16 @@ import { Component } from "react";
 import { ToDoItem } from "./ToDoItem";
 import { ListItem } from "../../types";
 
-const useReact = false;
-
-export class ListComponent extends Component<{ itemsList: ListItem[] }> {
+export class ListComponent extends Component<{
+  useReact: boolean;
+  itemsList: ListItem[];
+}> {
   state = {
     newItemContainer: "",
   };
 
   render() {
-    const { itemsList } = this.props;
+    const { itemsList, useReact } = this.props;
     const { newItemContainer } = this.state;
     return (
       <>

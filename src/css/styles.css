@@ -23,7 +23,8 @@
   cursor: pointer;
   color: var(--font-color-white);
 }
-.navbar-nav a:hover {
+.navbar-nav a:hover,
+.navbar-nav a.active {
   background-color: var(--bg-white);
   color: var(--font-color-dark);
 }

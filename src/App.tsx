@@ -7,13 +7,7 @@ import "./css/theme.css";
 import { ListItem } from "./types";
 import { ListComponent } from "./components/ToDoListApp.tsx/ListComponent";
 
-const anchorLinks = [
-  { name: "Item 1", address: "#" },
-  { name: "Item 2", address: "#" },
-  { name: "Item 3", address: "#" },
-  { name: "Item 4", address: "#" },
-  { name: "Item 5", address: "#" },
-];
+const useReact = true;
 
 const portfolioData = [
   { title: "Home Development", dataFilter: "web" },
@@ -37,8 +31,8 @@ function App() {
   return (
     <>
       <main>
-        <NavbarHeader logo={"Logo"} links={anchorLinks} />
-        <ListComponent itemsList={listItems} />
+        <NavbarHeader useReact={useReact} logo={"Logo"} />
+        <ListComponent useReact={useReact} itemsList={listItems} />
       </main>
     </>
   );
