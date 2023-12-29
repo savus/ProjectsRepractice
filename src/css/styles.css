@@ -34,6 +34,12 @@
   display: flex;
   justify-content: center;
   margin-top: var(--size-20);
+  transition: 0.3s;
+  transform: translateX(-100%);
+}
+
+.list-container.open {
+  transform: translateX(0);
 }
 
 .to-do-list {
@@ -174,5 +180,20 @@
   position: absolute;
   top: 0;
   right: 0;
+  padding: 0.5rem;
+  color: var(--font-color-white);
+  background-color: var(--bg-black);
   transform: translateX(100%);
+  cursor: pointer;
+}
+
+.open-list-tab:hover {
+  color: var(--font-color-dark);
+  background-color: var(--bg-white);
+  border: 1px solid var(--bg-black);
+}
+
+.open-list-tab:active {
+  color: var(--font-color-white);
+  background-color: var(--bg-black);
 }

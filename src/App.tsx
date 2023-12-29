@@ -7,7 +7,7 @@ import "./css/theme.css";
 import { ListItem } from "./types";
 import { ListComponent } from "./components/ToDoListApp.tsx/ListComponent";
 
-const useReact = true;
+const useReact = false;
 
 const portfolioData = [
   { title: "Home Development", dataFilter: "web" },

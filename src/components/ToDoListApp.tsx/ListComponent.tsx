@@ -15,7 +15,7 @@ export class ListComponent extends Component<{
     const { newItemContainer } = this.state;
     return (
       <>
-        <div className="list-container">
+        <div className="list-container open" id="to-do">
           <div className="to-do-list">
             <header className="list-header">
               <div>To Do List</div>
@@ -73,9 +73,7 @@ export class ListComponent extends Component<{
                   ))}
                 </ul>
               </div>
-              <div className="open-list-tab">
-                <i className="fa-solid fa-chevron-up"></i>
-              </div>
+              <div className="open-list-tab">Close</div>
             </div>
           </div>
         </div>

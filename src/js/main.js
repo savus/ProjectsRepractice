@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const useJavascript = false;
+  const useJavascript = true;
   if (useJavascript) {
     const open = "open";
     const dataToggle = "[data-toggle]";
@@ -18,13 +18,19 @@ document.addEventListener("DOMContentLoaded", function () {
       element.classList.add(active);
     };
 
+    const toggleOpen = (element) => {
+      if (element.className.includes(open)) element.classList.remove(open);
+      else element.classList.add(open);
+    };
+
     /* main header */
 
     const navbar = document.querySelector(navbarClass);
 
     navbar.addEventListener("click", function (e) {
       const target = e.target;
-      if (target.className.includes("navbar-link")) {
+      const className = target.className;
+      if (className.includes("navbar-link")) {
         setActive(target, navbarLink);
       }
     });
@@ -37,18 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const newItemModal = document.getElementById(newItemModalId);
     const newItemButtons = document.querySelectorAll(".btn-group button");
 
-    const toggleOpen = (element) => {
-      if (element.className.includes(open)) element.classList.remove(open);
-      else element.classList.add(open);
-    };
-
     newItemModalButton.addEventListener("click", () => {
-      toggleOpen(newItemModal);
+      toggleOpen(newItemModalId);
     });
 
     newItemButtons.forEach((button) => {
       button.addEventListener("click", function () {
-        toggleOpen(newItemModal);
+        toggleOpen(newItemModalId);
       });
     });
   }

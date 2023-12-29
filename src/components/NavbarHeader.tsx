@@ -27,6 +27,7 @@ export const NavbarHeader = ({
                     setAnchorTagActive("To Do List");
                   }
                 }}
+                data-open="to-do"
               >
                 To Do List
               </a>
