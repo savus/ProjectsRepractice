@@ -1,0 +1,13 @@
+#main-header {
+  background-color: var(--bg-dark);
+  color: var(--font-color-bright);
+  padding: var(--size-10);
+}
+
+#main-header #site-logo {
+  font-size: var(--size-25);
+  margin-right: auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 700;
+}

@@ -1,0 +1,22 @@
+/* needs to be tested and adjusted */
+:root {
+  --button-base: #2476fe;
+  --link-highlight: #659fff;
+  --bg-bright: #fff;
+  --bg-dark: #000;
+  --font-color-base: #6f7e8e;
+  --font-base-bold: #5f6267;
+  --button-alternative: #01c8a7;
+  --font-color-dark: #030303;
+  --font-color-bright: #f6f7f9;
+  --font-color-soft: #607082;
+  --background-color-soft: rgba(224, 231, 239, 1);
+  --background-color-faded: rgba(244, 231, 239, 0.2);
+  --background-color-form: #20335b;
+  --icon-background-soft: rgb(236, 242, 255);
+  --icon-background-dark: #677787;
+}
+
+/* needs to be inverted */
+[data-theme="dark"] {
+}

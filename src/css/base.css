@@ -1,0 +1,101 @@
+:root {
+  --size-8: 0.5rem;
+  --size-10: 0.625rem;
+  --size-12: 0.75rem;
+  --size-14: 0.875rem;
+  --size-16: 1rem;
+  --size-18: 1.125rem;
+  --size-20: 1.25rem;
+  --size-25: 1.563rem;
+  --size-30: 1.875rem;
+  --size-40: 2.5rem;
+  --size-50: 3.125rem;
+  --size-60: 3.75rem;
+  --size-100: 6.25rem;
+  --size-150: 9.375rem;
+  --size-200: 12.5rem;
+}
+
+main,
+header,
+nav,
+section,
+footer {
+  display: block;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-weight: 400;
+  letter-spacing: 0px;
+  color: var(--font-color-base);
+}
+
+a {
+  text-decoration: none;
+  background: transparent;
+  color: var(--link-highlight);
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+  border-style: none;
+}
+
+.container-sm,
+.container-md,
+.container-lg {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container-sm {
+  max-width: 400px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.ul-defaults-none {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flex-centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+/* test and create btn-primary */
+
+/* test and create other basic buttons */
