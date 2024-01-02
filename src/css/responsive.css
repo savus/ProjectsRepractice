@@ -1,0 +1,24 @@
+@media all and (max-width: 400px) {
+  #main-header {
+    padding: 0;
+  }
+
+  #main-header .navbar,
+  .navbar .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar-nav {
+    width: 100%;
+  }
+
+  .navbar-nav li {
+    width: 100%;
+    text-align: center;
+  }
+
+  #main-header #site-logo {
+    margin: auto;
+    padding: var(--size-20);
+  }
+}

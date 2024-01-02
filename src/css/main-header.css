@@ -1,7 +1,5 @@
-#main-header {
-  background-color: var(--bg-dark);
-  color: var(--font-color-bright);
-  padding: var(--size-10);
+#main-header .navbar {
+  flex-wrap: wrap;
 }
 
 #main-header #site-logo {
@@ -10,4 +8,15 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
+}
+
+.navbar-nav li {
+  padding: 10px 12px;
+}
+
+.navbar-nav li:hover,
+.navbar-nav li.active {
+  cursor: pointer;
+  background-color: var(--bg-bright);
+  color: var(--font-color-dark);
 }

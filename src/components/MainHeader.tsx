@@ -5,9 +5,9 @@ export class MainHeader extends Component {
   render() {
     return (
       <>
-        <header id="main-header" className="flex-centered">
-          <div id="site-logo">Logo</div>
-          <nav className="navbar">
+        <header id="main-header" className="container header-primary">
+          <nav className="navbar flex-centered">
+            <div id="site-logo">Logo</div>
             <ul className="navbar-nav ul-defaults-none flex-centered">
               <li className="nav-link" data-link="to-do">
                 To Do List

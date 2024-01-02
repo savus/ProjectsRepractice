@@ -53,6 +53,12 @@ img {
   border-style: none;
 }
 
+.header-primary {
+  background-color: var(--bg-dark);
+  color: var(--font-color-bright);
+}
+
+.container,
 .container-sm,
 .container-md,
 .container-lg {
@@ -73,6 +79,10 @@ img {
 
 .container-lg {
   max-width: 1024px;
+}
+
+.screen {
+  margin-top: var(--size-20);
 }
 
 .ul-defaults-none {
