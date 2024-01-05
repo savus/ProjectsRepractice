@@ -1,17 +1,41 @@
 import { Component } from "react";
 import "../css/to-do-list.css";
 
-export class ToDoList extends Component {
+type State = {
+  itemFormActiveState: "active" | "";
+};
+
+export class ToDoList extends Component<{ useReact: boolean }> {
+  state: State = {
+    itemFormActiveState: "",
+  };
+
   render() {
+    const { itemFormActiveState } = this.state;
+    const { useReact } = this.props;
     return (
       <>
         <div id="to-do-list" className="container-md">
           <header id="to-do-header" className="header-primary flex-centered">
             <div className="title">To Do List</div>
-            <div className="add-item-button" data-tooltip="Add New Item">
+            <div
+              className="add-item-button"
+              data-tooltip="Add New Item"
+              onClick={() => {
+                if (useReact) {
+                  itemFormActiveState === "active"
+                    ? this.setState({ itemFormActiveState: "" })
+                    : this.setState({ itemFormActiveState: "active" });
+                }
+              }}
+            >
               +
             </div>
-            <form action="#" id="add-item-form" className="flex-centered">
+            <form
+              action="#"
+              id="add-item-form"
+              className={`flex-centered ${itemFormActiveState}`}
+            >
               <h3>New Item</h3>
               <div className="input-primary">
                 <input

@@ -14,7 +14,7 @@ function App() {
       <MainSectionLayout>
         <MainHeader useReact={useReact} />
         <ScreenLayout id={"to-do"}>
-          <ToDoList />
+          <ToDoList useReact={useReact} />
         </ScreenLayout>
       </MainSectionLayout>
     </>
