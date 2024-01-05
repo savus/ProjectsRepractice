@@ -64,8 +64,16 @@ export class ToDoList extends Component<{ useReact: boolean }> {
                   />
                 </div>
                 <div className="btn-group">
-                  <button className="edit-button btn btn-primary">Edit</button>
-                  <button className="delete-button btn btn-primary">
+                  <button
+                    className="edit-button btn btn-primary"
+                    data-tooltip="Click to edit"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="delete-button btn btn-primary"
+                    data-tooltip="Click to delete"
+                  >
                     Delete
                   </button>
                 </div>
