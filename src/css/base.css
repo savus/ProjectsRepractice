@@ -99,7 +99,7 @@ img {
 
 /* Inputs */
 
-.primary-input {
+.input-primary {
   padding: 0.2rem 0.5rem;
   border: 1px solid var(--border-color-soft);
   border-radius: 15px;
@@ -107,12 +107,12 @@ img {
   background-color: var(--bg-bright);
 }
 
-.primary-input input {
+.input-primary input {
   border: none;
   outline: none;
 }
 
-.primary-input input:focus {
+.input-primary input:focus {
   color: var(--font-color-soft);
 }
 

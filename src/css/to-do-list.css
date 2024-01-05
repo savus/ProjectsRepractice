@@ -1,5 +1,5 @@
 #to-do-header {
-  padding: var(--size-10);
+  padding: var(--size-18);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 700;
@@ -72,11 +72,27 @@
 #to-do-header #add-item-form {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 5%;
+  right: 5%;
   transform: translateY(100%);
   background-color: var(--background-color-form);
   flex-direction: column;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+#add-item-form .input-primary {
+  padding: 0.4rem 1rem;
+  border-radius: 5rem;
+}
+
+#add-item-form .input-primary input {
+  font-size: var(--size-18);
+}
+
+#add-item-form .input-primary,
+#add-item-form #add-item-confirm {
+  margin-bottom: var(--size-12);
 }
 
 #to-do-body {
