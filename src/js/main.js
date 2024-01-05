@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinkClass = ".nav-link";
     const navbarClass = ".navbar-nav";
     const active = "active";
+    const listItemClass = ".list-item";
 
     const navlinksNavbar = document.querySelector(navbarClass);
 
@@ -16,11 +17,32 @@ document.addEventListener("DOMContentLoaded", function () {
       element.classList.add(active);
     };
 
+    const toggleClass = (element, className) => {
+      if (element.className.includes(className)) {
+        element.classList.remove(className);
+      } else {
+        element.classList.add(className);
+      }
+    };
+
     navlinksNavbar.addEventListener("click", function (e) {
       const target = e.target;
       if (target.className.includes("nav-link")) {
         setActive(target, navLinkClass);
       }
+    });
+
+    const listItems = document.querySelectorAll(listItemClass);
+
+    listItems.forEach((item) => {
+      item.addEventListener("click", function (e) {
+        const target = e.target;
+        if (target.className.includes("edit-button")) {
+          toggleClass(item, "edit-mode");
+        } else if (target.className.includes("delete-button")) {
+          console.log("delete button clicked");
+        }
+      });
     });
   }
 });

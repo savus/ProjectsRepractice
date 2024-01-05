@@ -71,3 +71,42 @@
 #to-do-body {
   border: 1px solid black;
 }
+
+#to-do-body .list-item {
+  padding: 0.8rem;
+}
+
+.list-item .item-content,
+.list-item .item-input-container {
+  margin-right: auto;
+}
+
+.list-item.edit-mode .item-content {
+  display: none;
+}
+
+.list-item .item-content,
+.item-input-container input {
+  font-size: var(--size-16);
+}
+
+.item-input-container {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border-color-soft);
+  border-radius: 15px;
+  display: none;
+  overflow-x: hidden;
+}
+
+.item-input-container input {
+  border: none;
+  outline: none;
+}
+
+.item-input-container input:focus {
+  color: var(--font-color-soft);
+}
+
+.list-item.edit-mode .item-input-container {
+  display: block;
+}
