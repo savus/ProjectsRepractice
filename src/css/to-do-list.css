@@ -23,13 +23,52 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   background-color: var(--bg-bright);
   color: var(--bg-dark);
-  /* box-shadow: 0px 0px 2px 2px var(--bg-dark),
-    inset 0px 0px 2px 2px var(--bg-dark); */
 }
 
 #to-do-header .add-item-button:active {
   background-color: initial;
   color: var(--font-color-bright);
+}
+
+#to-do-header .add-item-button::after,
+#to-do-header .add-item-button::before {
+  right: -0.5rem;
+  top: 50%;
+  position: absolute;
+  /* visibility: hidden;
+  opacity: 0; */
+  transition: 0.35s all;
+}
+
+#to-do-header .add-item-button::before {
+  content: attr(data-tooltip);
+  font-size: var(--size-10);
+  padding: 0.5rem;
+  border-radius: 0 0.3rem 0.3rem 0;
+  width: max-content;
+  background-color: red;
+  color: black;
+  transform: translate(100%, -50%);
+  transition: right 0.35s, opacity 0.35s, visibility 0.35s;
+  visibility: visible;
+  opacity: 1;
+}
+
+#to-do-header .add-item-button:hover::before,
+#to-do-header .add-item-button:hover::after {
+  visibility: visible;
+  opacity: 1;
+  right: -1rem;
+}
+
+#to-do-header .add-item-button::after {
+  content: "";
+  position: absolute;
+  border: 12px solid transparent;
+  border-right-color: red;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 #to-do-body {

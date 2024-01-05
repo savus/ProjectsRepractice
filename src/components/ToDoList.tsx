@@ -8,7 +8,9 @@ export class ToDoList extends Component {
         <div id="to-do-list" className="container-sm">
           <header id="to-do-header" className="header-primary flex-centered">
             <div className="title">To Do List</div>
-            <div className="add-item-button">+</div>
+            <div className="add-item-button" data-tooltip="< Add New Item">
+              +
+            </div>
           </header>
           <div id="to-do-body">
             <ul id="list-container" className="ul-defaults-none">
