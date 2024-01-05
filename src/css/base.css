@@ -97,6 +97,27 @@ img {
   align-items: center;
 }
 
+/* Inputs */
+
+.primary-input {
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--border-color-soft);
+  border-radius: 15px;
+  overflow-x: hidden;
+  background-color: var(--bg-bright);
+}
+
+.primary-input input {
+  border: none;
+  outline: none;
+}
+
+.primary-input input:focus {
+  color: var(--font-color-soft);
+}
+
+/* Buttons */
+
 .btn {
   display: inline-block;
   text-align: center;
@@ -105,8 +126,6 @@ img {
   background-color: transparent;
   border: 1px solid transparent;
 }
-
-/* test and create btn-primary */
 
 .btn-primary {
   border-color: #000;

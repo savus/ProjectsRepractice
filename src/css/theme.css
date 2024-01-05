@@ -13,7 +13,7 @@
   --border-color-soft: #666;
   --background-color-soft: rgb(240, 240, 240);
   --background-color-faded: rgba(248, 244, 246, 0.3);
-  --background-color-form: #20335b;
+  --background-color-form: rgba(0, 0, 0, 0.8);
   --icon-background-soft: rgb(236, 242, 255);
   --icon-background-dark: #677787;
 }

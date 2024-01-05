@@ -4,6 +4,7 @@
   text-transform: uppercase;
   font-weight: 700;
   position: relative;
+  box-shadow: inset 1px -4px 10px -3px #fff;
 }
 
 #to-do-header .add-item-button {
@@ -68,6 +69,16 @@
   transform-origin: bottom center;
 }
 
+#to-do-header #add-item-form {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(100%);
+  background-color: var(--background-color-form);
+  flex-direction: column;
+}
+
 #to-do-body {
   border: 1px solid black;
 }
@@ -91,20 +102,7 @@
 }
 
 .item-input-container {
-  padding: 0.2rem 0.5rem;
-  border: 1px solid var(--border-color-soft);
-  border-radius: 15px;
   display: none;
-  overflow-x: hidden;
-}
-
-.item-input-container input {
-  border: none;
-  outline: none;
-}
-
-.item-input-container input:focus {
-  color: var(--font-color-soft);
 }
 
 .list-item.edit-mode .item-input-container {
