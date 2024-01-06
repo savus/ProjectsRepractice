@@ -6,6 +6,13 @@ export const Requests = {
   getAllListItems: (): Promise<TListItem[]> =>
     fetch(`${BASE_URL}/ListItems`).then((response) => response.json()),
 
+  postNewItem: (item: Omit<TListItem, "id">) =>
+    fetch(`${BASE_URL}/ListItems`, {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: { "Content-Type": "application/json" },
+    }).then((response) => response.json()),
+
   updateListItem: (id: number, body: Partial<TListItem>) =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "PATCH",

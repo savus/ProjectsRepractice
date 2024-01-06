@@ -18,6 +18,10 @@ function App() {
     return Requests.getAllListItems().then(setAllListItems);
   };
 
+  const postNewItem = (item: Omit<TListItem, "id">) => {
+    return Requests.postNewItem(item).then(fetchData);
+  };
+
   const updateListItem = (itemID: number, input: string) => {
     return Requests.updateListItem(itemID, { content: input }).then(fetchData);
   };
@@ -37,6 +41,7 @@ function App() {
         <ScreenLayout id={"to-do"}>
           <ToDoList
             useReact={useReact}
+            postNewItem={postNewItem}
             itemsList={allListItems}
             updateListItem={updateListItem}
             deleteListItem={deleteListItem}

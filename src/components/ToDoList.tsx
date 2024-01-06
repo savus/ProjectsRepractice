@@ -6,22 +6,27 @@ import { ListItemComponent } from "./ListItemComponent";
 type State = {
   itemFormActiveState: "active" | "";
   toolTipText: "Add new item" | "Close";
+  newItemInputState: string;
 };
 
 export class ToDoList extends Component<{
   useReact: boolean;
   itemsList: TListItem[];
+  postNewItem: (item: Omit<TListItem, "id">) => Promise<unknown>;
   updateListItem: (id: number, input: string) => Promise<unknown>;
   deleteListItem: (id: number) => Promise<unknown>;
 }> {
   state: State = {
     itemFormActiveState: "",
     toolTipText: "Add new item",
+    newItemInputState: "",
   };
 
   render() {
-    const { itemFormActiveState, toolTipText } = this.state;
-    const { useReact, itemsList, updateListItem, deleteListItem } = this.props;
+    const { itemFormActiveState, toolTipText, newItemInputState } = this.state;
+    const { useReact, itemsList, updateListItem, deleteListItem, postNewItem } =
+      this.props;
+    const sortedList = [...itemsList].sort((a, b) => b.id - a.id);
     return (
       <>
         <div id="to-do-list" className="container-md">
@@ -50,6 +55,14 @@ export class ToDoList extends Component<{
               action="#"
               id="add-item-form"
               className={`flex-centered ${itemFormActiveState}`}
+              onSubmit={(e) => {
+                e.preventDefault();
+                postNewItem({ content: newItemInputState });
+                this.setState({
+                  newItemInputState: "",
+                  itemFormActiveState: "",
+                });
+              }}
             >
               <h3>New Item</h3>
               <div className="input-primary">
@@ -57,6 +70,10 @@ export class ToDoList extends Component<{
                   type="text"
                   id="new-item-input"
                   placeholder="type here..."
+                  value={newItemInputState}
+                  onChange={(e) =>
+                    this.setState({ newItemInputState: e.target.value })
+                  }
                 />
               </div>
               <input
@@ -69,7 +86,7 @@ export class ToDoList extends Component<{
           </header>
           <div id="to-do-body">
             <ul id="list-container" className="ul-defaults-none">
-              {itemsList.map((item) => (
+              {sortedList.map((item) => (
                 <ListItemComponent
                   key={item.id}
                   item={item}
