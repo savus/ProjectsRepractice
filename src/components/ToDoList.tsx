@@ -1,12 +1,19 @@
 import { Component } from "react";
 import "../css/to-do-list.css";
+import { TListItem } from "../types";
+import { ListItemComponent } from "./ListItemComponent";
 
 type State = {
   itemFormActiveState: "active" | "";
   toolTipText: "Add new item" | "Close";
 };
 
-export class ToDoList extends Component<{ useReact: boolean }> {
+export class ToDoList extends Component<{
+  useReact: boolean;
+  itemsList: TListItem[];
+  updateListItem: (id: number, input: string) => Promise<unknown>;
+  deleteListItem: (id: number) => Promise<unknown>;
+}> {
   state: State = {
     itemFormActiveState: "",
     toolTipText: "Add new item",
@@ -14,14 +21,14 @@ export class ToDoList extends Component<{ useReact: boolean }> {
 
   render() {
     const { itemFormActiveState, toolTipText } = this.state;
-    const { useReact } = this.props;
+    const { useReact, itemsList, updateListItem, deleteListItem } = this.props;
     return (
       <>
         <div id="to-do-list" className="container-md">
           <header id="to-do-header" className="header-primary flex-centered">
             <div className="title">To Do List</div>
             <div
-              className="add-item-button tooltip-above"
+              className="add-item-button"
               data-tooltip={`${toolTipText}`}
               onClick={() => {
                 if (useReact) {
@@ -62,30 +69,14 @@ export class ToDoList extends Component<{ useReact: boolean }> {
           </header>
           <div id="to-do-body">
             <ul id="list-container" className="ul-defaults-none">
-              <li className="list-item edit-mode flex-centered">
-                <div className="item-content">Shop</div>
-                <div className="item-input-container input-primary">
-                  <input
-                    type="text"
-                    className="item-input"
-                    placeholder="Shop"
-                  />
-                </div>
-                <div className="btn-group">
-                  <button
-                    className="edit-button btn btn-primary tooltip-above"
-                    data-tooltip="Click to edit"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="delete-button btn btn-primary tooltip-below"
-                    data-tooltip="Click to delete"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
+              {itemsList.map((item) => (
+                <ListItemComponent
+                  key={item.id}
+                  item={item}
+                  updateListItem={updateListItem}
+                  deleteListItem={deleteListItem}
+                />
+              ))}
             </ul>
           </div>
         </div>
