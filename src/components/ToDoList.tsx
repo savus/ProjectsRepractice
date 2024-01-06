@@ -2,11 +2,14 @@ import { Component } from "react";
 import "../css/to-do-list.css";
 import { TListItem } from "../types";
 import { ListItemComponent } from "./ListItemComponent";
+import { isListItemValid } from "../utils/validations";
+import { ErrorMessage } from "./shared/ErrorMessage";
 
 type State = {
   itemFormActiveState: "active" | "";
   toolTipText: "Add new item" | "Close";
-  newItemInputState: string;
+  newItemInput: string;
+  isSubmitted: boolean;
 };
 
 export class ToDoList extends Component<{
@@ -19,13 +22,23 @@ export class ToDoList extends Component<{
   state: State = {
     itemFormActiveState: "",
     toolTipText: "Add new item",
-    newItemInputState: "",
+    newItemInput: "",
+    isSubmitted: false,
   };
 
   render() {
-    const { itemFormActiveState, toolTipText, newItemInputState } = this.state;
+    const formInputErrorMessage = "Item must have more than 0 characters";
+    const { itemFormActiveState, toolTipText, newItemInput, isSubmitted } =
+      this.state;
     const { useReact, itemsList, updateListItem, deleteListItem, postNewItem } =
       this.props;
+
+    const formInputIsValid = isListItemValid(newItemInput);
+
+    const showFormErrorMessage = isSubmitted && !formInputIsValid;
+
+    const doBadInputsExist = !formInputIsValid;
+
     const sortedList = [...itemsList].sort((a, b) => b.id - a.id);
     return (
       <>
@@ -57,11 +70,17 @@ export class ToDoList extends Component<{
               className={`flex-centered ${itemFormActiveState}`}
               onSubmit={(e) => {
                 e.preventDefault();
-                postNewItem({ content: newItemInputState });
-                this.setState({
-                  newItemInputState: "",
-                  itemFormActiveState: "",
-                });
+                this.setState({ isSubmitted: true });
+                if (doBadInputsExist) {
+                  alert("Bad Inputs");
+                } else {
+                  postNewItem({ content: newItemInput });
+                  this.setState({
+                    newItemInput: "",
+                    itemFormActiveState: "",
+                    toolTipText: "Add new item",
+                  });
+                }
               }}
             >
               <h3>New Item</h3>
@@ -70,12 +89,16 @@ export class ToDoList extends Component<{
                   type="text"
                   id="new-item-input"
                   placeholder="type here..."
-                  value={newItemInputState}
+                  value={newItemInput}
                   onChange={(e) =>
-                    this.setState({ newItemInputState: e.target.value })
+                    this.setState({ newItemInput: e.target.value })
                   }
                 />
               </div>
+              <ErrorMessage
+                message={formInputErrorMessage}
+                show={showFormErrorMessage}
+              />
               <input
                 type="submit"
                 id="add-item-confirm"

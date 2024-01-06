@@ -16,6 +16,7 @@
   --background-color-form: rgba(0, 0, 0, 0.8);
   --icon-background-soft: rgb(236, 242, 255);
   --icon-background-dark: #677787;
+  --message-danger: red;
 }
 
 /* needs to be inverted */

@@ -197,3 +197,11 @@ img {
 [data-tooltip]:hover::after {
   --scale: 1;
 }
+
+/* error messages */
+
+.error-message {
+  margin: var(--size-20);
+  color: var(--message-danger);
+  font-size: var(--size-16);
+}
