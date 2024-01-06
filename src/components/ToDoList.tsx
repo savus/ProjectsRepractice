@@ -3,15 +3,17 @@ import "../css/to-do-list.css";
 
 type State = {
   itemFormActiveState: "active" | "";
+  toolTipText: "Add new item" | "Close";
 };
 
 export class ToDoList extends Component<{ useReact: boolean }> {
   state: State = {
     itemFormActiveState: "",
+    toolTipText: "Add new item",
   };
 
   render() {
-    const { itemFormActiveState } = this.state;
+    const { itemFormActiveState, toolTipText } = this.state;
     const { useReact } = this.props;
     return (
       <>
@@ -19,13 +21,19 @@ export class ToDoList extends Component<{ useReact: boolean }> {
           <header id="to-do-header" className="header-primary flex-centered">
             <div className="title">To Do List</div>
             <div
-              className="add-item-button"
-              data-tooltip="Add New Item"
+              className="add-item-button tooltip-above"
+              data-tooltip={`${toolTipText}`}
               onClick={() => {
                 if (useReact) {
                   itemFormActiveState === "active"
-                    ? this.setState({ itemFormActiveState: "" })
-                    : this.setState({ itemFormActiveState: "active" });
+                    ? this.setState({
+                        itemFormActiveState: "",
+                        toolTipText: "Add new item",
+                      })
+                    : this.setState({
+                        itemFormActiveState: "active",
+                        toolTipText: "Close",
+                      });
                 }
               }}
             >
@@ -65,13 +73,13 @@ export class ToDoList extends Component<{ useReact: boolean }> {
                 </div>
                 <div className="btn-group">
                   <button
-                    className="edit-button btn btn-primary"
+                    className="edit-button btn btn-primary tooltip-above"
                     data-tooltip="Click to edit"
                   >
                     Edit
                   </button>
                   <button
-                    className="delete-button btn btn-primary"
+                    className="delete-button btn btn-primary tooltip-below"
                     data-tooltip="Click to delete"
                   >
                     Delete
