@@ -75,23 +75,12 @@
   border: 1px solid black;
 }
 
-#to-do-body #list-container,
-#list-container .list-item {
-  --list-item-height: 60px;
-}
-
 #to-do-body #list-container {
-  overflow-y: scroll;
-  max-height: calc(var(--list-item-height) * 4);
-}
-
-#to-do-body #list-container,
-#list-container .list-item {
   padding: 0 0.5rem;
 }
 
 #list-container .list-item {
-  height: var(--list-item-height);
+  padding: 1rem 0;
 }
 
 #list-container .list-item:not(:last-child) {

@@ -1,4 +1,4 @@
-@media all and (max-width: 400px) {
+@media all and (max-width: 550px) {
   #main-header {
     padding: 0;
   }
@@ -20,5 +20,13 @@
   #main-header #site-logo {
     margin: auto;
     padding: var(--size-20);
+  }
+
+  #list-container .list-item {
+    flex-direction: column;
+  }
+  .list-item .item-content,
+  .list-item .item-input-container {
+    margin: 0 0 15px 0;
   }
 }
