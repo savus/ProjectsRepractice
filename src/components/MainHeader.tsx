@@ -17,9 +17,9 @@ export class MainHeader extends Component<{ useReact: boolean }> {
     return (
       <>
         <header id="main-header" className="container header-primary">
-          <nav className="navbar flex-centered">
+          <nav className="navbar flex-and-align">
             <div id="site-logo">Logo</div>
-            <ul className="navbar-nav ul-defaults-none flex-centered">
+            <ul className="navbar-nav ul-defaults-none flex-and-align">
               <li
                 className={`nav-link ${
                   activeLinkState === "to-do" ? "active" : ""

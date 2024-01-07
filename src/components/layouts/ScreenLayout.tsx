@@ -9,7 +9,7 @@ export const ScreenLayout = ({
 }) => {
   return (
     <>
-      <section id={id} className="screen flex-centered">
+      <section id={id} className="screen flex-and-align">
         {children}
       </section>
     </>

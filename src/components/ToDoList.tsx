@@ -50,7 +50,7 @@ export class ToDoList extends Component<{
     return (
       <>
         <div id="to-do-list" className="container-md">
-          <header id="to-do-header" className="header-primary flex-centered">
+          <header id="to-do-header" className="header-primary flex-and-align">
             <div className="title">To Do List</div>
             <div
               className="add-item-button"
@@ -74,7 +74,7 @@ export class ToDoList extends Component<{
             <form
               action="#"
               id="add-item-form"
-              className={`flex-centered ${itemFormActiveState}`}
+              className={`flex-and-align ${itemFormActiveState}`}
               onSubmit={(e) => {
                 e.preventDefault();
                 this.setState({ submitAttempted: true });

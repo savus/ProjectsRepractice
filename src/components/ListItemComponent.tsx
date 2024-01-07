@@ -13,7 +13,7 @@ export const ListItemComponent = ({
   const [editModeState, setEditModeState] = useState<"edit-mode" | "">("");
   const [itemInputState, setItemInputState] = useState(content);
   return (
-    <li className={`list-item flex-centered ${editModeState}`}>
+    <li className={`list-item flex-and-align ${editModeState}`}>
       <div className="item-content">{content}</div>
       <div className="item-input-container input-primary">
         <input

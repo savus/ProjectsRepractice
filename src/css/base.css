@@ -91,7 +91,7 @@ img {
   list-style: none;
 }
 
-.flex-centered {
+.flex-and-align {
   display: flex;
   justify-content: center;
   align-items: center;
