@@ -9,7 +9,7 @@ type State = {
   itemFormActiveState: "active" | "";
   toolTipText: "Add new item" | "Close";
   newItemInput: string;
-  isSubmitted: boolean;
+  submitAttempted: boolean;
 };
 
 export class ToDoList extends Component<{
@@ -23,23 +23,30 @@ export class ToDoList extends Component<{
     itemFormActiveState: "",
     toolTipText: "Add new item",
     newItemInput: "",
-    isSubmitted: false,
+    submitAttempted: false,
   };
 
   render() {
     const formInputErrorMessage = "Item must have more than 0 characters";
-    const { itemFormActiveState, toolTipText, newItemInput, isSubmitted } =
+    const { itemFormActiveState, toolTipText, newItemInput, submitAttempted } =
       this.state;
     const { useReact, itemsList, updateListItem, deleteListItem, postNewItem } =
       this.props;
 
     const formInputIsValid = isListItemValid(newItemInput);
 
-    const showFormErrorMessage = isSubmitted && !formInputIsValid;
+    const showFormErrorMessage = submitAttempted && !formInputIsValid;
 
     const doBadInputsExist = !formInputIsValid;
 
     const sortedList = [...itemsList].sort((a, b) => b.id - a.id);
+
+    const resetValues = () => {
+      this.setState({
+        submitAttempted: false,
+      });
+    };
+
     return (
       <>
         <div id="to-do-list" className="container-md">
@@ -70,16 +77,10 @@ export class ToDoList extends Component<{
               className={`flex-centered ${itemFormActiveState}`}
               onSubmit={(e) => {
                 e.preventDefault();
-                this.setState({ isSubmitted: true });
-                if (doBadInputsExist) {
-                  alert("Bad Inputs");
-                } else {
+                this.setState({ submitAttempted: true });
+                if (!doBadInputsExist) {
                   postNewItem({ content: newItemInput });
-                  this.setState({
-                    newItemInput: "",
-                    itemFormActiveState: "",
-                    toolTipText: "Add new item",
-                  });
+                  resetValues();
                 }
               }}
             >

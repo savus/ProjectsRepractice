@@ -82,7 +82,7 @@ img {
 }
 
 .screen {
-  margin-top: var(--size-20);
+  margin-top: 20px;
 }
 
 .ul-defaults-none {
@@ -137,7 +137,7 @@ img {
   margin: 0 8px;
   padding: 0.7rem 1.1rem;
   border-radius: 20px;
-  box-shadow: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-base);
 }
 
 .btn-primary:hover {

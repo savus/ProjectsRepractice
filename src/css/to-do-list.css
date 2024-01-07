@@ -1,3 +1,8 @@
+#to-do-body {
+  box-shadow: var(--box-shadow-base);
+  border-radius: 0px 0px 10px 10px;
+}
+
 #to-do-header {
   padding: var(--size-18);
   letter-spacing: 1px;
@@ -70,8 +75,27 @@
   border: 1px solid black;
 }
 
-#to-do-body .list-item {
-  padding: 0.8rem;
+#to-do-body #list-container,
+#list-container .list-item {
+  --list-item-height: 60px;
+}
+
+#to-do-body #list-container {
+  overflow-y: scroll;
+  max-height: calc(var(--list-item-height) * 4);
+}
+
+#to-do-body #list-container,
+#list-container .list-item {
+  padding: 0 0.5rem;
+}
+
+#list-container .list-item {
+  height: var(--list-item-height);
+}
+
+#list-container .list-item:not(:last-child) {
+  border-bottom: 1px solid black;
 }
 
 .list-item .item-content,

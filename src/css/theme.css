@@ -17,6 +17,7 @@
   --icon-background-soft: rgb(236, 242, 255);
   --icon-background-dark: #677787;
   --message-danger: red;
+  --box-shadow-base: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
 }
 
 /* needs to be inverted */
