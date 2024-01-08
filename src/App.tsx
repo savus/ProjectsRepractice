@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { TListItem } from "./types";
 import { Requests } from "./api";
 
-const useReact = false;
+const useReact = true;
 
 function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);

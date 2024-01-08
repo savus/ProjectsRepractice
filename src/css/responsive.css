@@ -27,7 +27,7 @@
     top: 100%;
     left: 0;
     right: 0;
-    background-color: red;
+    flex-direction: column;
   }
 
   .navbar-nav li {

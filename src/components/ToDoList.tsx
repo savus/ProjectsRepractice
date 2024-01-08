@@ -49,15 +49,11 @@ export class ToDoList extends Component<{
 
     return (
       <>
-        <div
-          id="to-do-list"
-          className="container-md"
-          style={{ display: "none" }}
-        >
+        <div id="to-do-list" className="container-md">
           <header id="to-do-header" className="header-primary flex-and-align">
             <div className="title">To Do List</div>
             <div
-              className="add-item-button"
+              className="add-item-button btn btn-secondary"
               data-tooltip={`${toolTipText}`}
               onClick={() => {
                 if (useReact) {

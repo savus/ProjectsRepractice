@@ -4,15 +4,17 @@ import { TActiveLinkState } from "../types";
 
 type State = {
   activeLinkState: TActiveLinkState;
+  ariaExpandedState: boolean;
 };
 
 export class MainHeader extends Component<{ useReact: boolean }> {
   state: State = {
     activeLinkState: "none",
+    ariaExpandedState: false,
   };
 
   render() {
-    const { activeLinkState } = this.state;
+    const { activeLinkState, ariaExpandedState } = this.state;
     const { useReact } = this.props;
     return (
       <>
@@ -21,8 +23,11 @@ export class MainHeader extends Component<{ useReact: boolean }> {
             <div id="site-logo">Logo</div>
             <button
               className="navbar-toggler btn btn-secondary"
-              aria-expanded="false"
+              aria-expanded={ariaExpandedState}
               aria-controls="navbarDropdown"
+              onClick={() => {
+                this.setState({ ariaExpandedState: !ariaExpandedState });
+              }}
             >
               <span className="trigram">
                 <i className="fa-solid fa-bars"></i>

@@ -18,6 +18,10 @@
   transform: translateY(-50%);
 }
 
+.navbar-nav {
+  background-color: black;
+}
+
 .navbar-nav li {
   padding: 10px 12px;
 }
