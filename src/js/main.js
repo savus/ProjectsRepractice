@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const useJavascript = false;
+  const useJavascript = true;
   if (useJavascript) {
     const navLinkClass = ".nav-link";
     const navbarClass = ".navbar-nav";
@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const listItemClass = ".list-item";
 
     const navlinksNavbar = document.querySelector(navbarClass);
+
+    const navbarTogglerClass = ".navbar-toggler";
 
     const setActive = (element, selector) => {
       if (document.querySelector(`${selector}.${active}`) !== null)
@@ -31,6 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
         setActive(target, navLinkClass);
       }
     });
+
+    const toggleNavDropdown = ({ target }) => {
+      const expanded = target.getAttribute("aria-expanded") === "true" || false;
+      target.setAttribute("aria-expanded", !expanded);
+    };
+
+    const navbarToggler = document.querySelector(navbarTogglerClass);
+
+    navbarToggler.addEventListener("click", toggleNavDropdown);
 
     const listItems = document.querySelectorAll(listItemClass);
 

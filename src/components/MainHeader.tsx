@@ -19,6 +19,18 @@ export class MainHeader extends Component<{ useReact: boolean }> {
         <header id="main-header" className="container header-primary">
           <nav className="navbar flex-and-align">
             <div id="site-logo">Logo</div>
+            <button
+              className="navbar-toggler btn btn-secondary"
+              aria-expanded="false"
+              aria-controls="navbarDropdown"
+            >
+              <span className="trigram">
+                <i className="fa-solid fa-bars"></i>
+              </span>
+              <span className="x-icon">
+                <i className="fa-solid fa-x"></i>
+              </span>
+            </button>
             <ul className="navbar-nav ul-defaults-none flex-and-align">
               <li
                 className={`nav-link ${

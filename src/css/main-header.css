@@ -10,6 +10,14 @@
   font-weight: 700;
 }
 
+#main-header .navbar-toggler {
+  display: none;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
 .navbar-nav li {
   padding: 10px 12px;
 }

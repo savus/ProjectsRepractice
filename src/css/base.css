@@ -151,6 +151,26 @@ img {
 }
 
 /* test and create other basic buttons */
+.btn-secondary {
+  padding: 0 5px;
+  border-radius: 8px;
+  line-height: 0.925;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: var(--size-30);
+  box-shadow: 0px 0px 2px 2px var(--background-color-faded),
+    inset 0px 0px 2px 2px var(--background-color-faded);
+}
+
+.btn-secondary:hover {
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: var(--bg-bright);
+  color: var(--bg-dark);
+}
+
+.btn-secondary:active {
+  background-color: initial;
+  color: var(--font-color-bright);
+}
 
 /* tooltips */
 
@@ -204,4 +224,15 @@ img {
   margin: var(--size-20);
   color: var(--message-danger);
   font-size: var(--size-16);
+}
+
+/* aria controls */
+
+.navbar-toggler {
+  background-color: transparent;
+  border: 1px solid white;
+  outline: none;
+  padding: 0.5rem;
+  font-size: var(--size-16);
+  color: #fff;
 }

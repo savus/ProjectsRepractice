@@ -49,7 +49,11 @@ export class ToDoList extends Component<{
 
     return (
       <>
-        <div id="to-do-list" className="container-md">
+        <div
+          id="to-do-list"
+          className="container-md"
+          style={{ display: "none" }}
+        >
           <header id="to-do-header" className="header-primary flex-and-align">
             <div className="title">To Do List</div>
             <div
