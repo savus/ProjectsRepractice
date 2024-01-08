@@ -6,13 +6,15 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
 import { useEffect, useState } from "react";
-import { TListItem } from "./types";
+import { TActiveLinkState, TListItem } from "./types";
 import { Requests } from "./api";
 
 const useReact = true;
 
 function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);
+  const [activeLinkState, setActiveLinkState] =
+    useState<TActiveLinkState>("none");
 
   const fetchData = () => {
     return Requests.getAllListItems().then(setAllListItems);
@@ -37,15 +39,23 @@ function App() {
   return (
     <>
       <MainSectionLayout>
-        <MainHeader useReact={useReact} />
+        <MainHeader
+          useReact={useReact}
+          activeLinkState={activeLinkState}
+          setActiveLinkState={(activeLinkState) => {
+            setActiveLinkState(activeLinkState);
+          }}
+        />
         <ScreenLayout id={"to-do"}>
-          <ToDoList
-            useReact={useReact}
-            postNewItem={postNewItem}
-            itemsList={allListItems}
-            updateListItem={updateListItem}
-            deleteListItem={deleteListItem}
-          />
+          {activeLinkState === "to-do" && (
+            <ToDoList
+              useReact={useReact}
+              postNewItem={postNewItem}
+              itemsList={allListItems}
+              updateListItem={updateListItem}
+              deleteListItem={deleteListItem}
+            />
+          )}
         </ScreenLayout>
       </MainSectionLayout>
     </>

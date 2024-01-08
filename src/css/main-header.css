@@ -1,5 +1,6 @@
 #main-header .navbar {
   flex-wrap: wrap;
+  z-index: 30;
 }
 
 #main-header #site-logo {

@@ -3,19 +3,21 @@ import "../css/main-header.css";
 import { TActiveLinkState } from "../types";
 
 type State = {
-  activeLinkState: TActiveLinkState;
   ariaExpandedState: boolean;
 };
 
-export class MainHeader extends Component<{ useReact: boolean }> {
+export class MainHeader extends Component<{
+  useReact: boolean;
+  activeLinkState: TActiveLinkState;
+  setActiveLinkState: (activeLinkState: TActiveLinkState) => void;
+}> {
   state: State = {
-    activeLinkState: "none",
     ariaExpandedState: false,
   };
 
   render() {
-    const { activeLinkState, ariaExpandedState } = this.state;
-    const { useReact } = this.props;
+    const { ariaExpandedState } = this.state;
+    const { useReact, activeLinkState, setActiveLinkState } = this.props;
     return (
       <>
         <header id="main-header" className="container header-primary">
@@ -44,7 +46,7 @@ export class MainHeader extends Component<{ useReact: boolean }> {
                 data-link="to-do"
                 onClick={() => {
                   if (useReact) {
-                    this.setState({ activeLinkState: "to-do" });
+                    setActiveLinkState("to-do");
                   }
                 }}
               >
@@ -57,7 +59,7 @@ export class MainHeader extends Component<{ useReact: boolean }> {
                 data-link=""
                 onClick={() => {
                   if (useReact) {
-                    this.setState({ activeLinkState: "item 2" });
+                    setActiveLinkState("item 2");
                   }
                 }}
               >
@@ -70,7 +72,7 @@ export class MainHeader extends Component<{ useReact: boolean }> {
                 data-link=""
                 onClick={() => {
                   if (useReact) {
-                    this.setState({ activeLinkState: "item 3" });
+                    setActiveLinkState("item 3");
                   }
                 }}
               >
@@ -83,7 +85,7 @@ export class MainHeader extends Component<{ useReact: boolean }> {
                 data-link=""
                 onClick={() => {
                   if (useReact) {
-                    this.setState({ activeLinkState: "item 4" });
+                    setActiveLinkState("item 4");
                   }
                 }}
               >
