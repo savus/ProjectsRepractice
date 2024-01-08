@@ -28,8 +28,33 @@ function App() {
     return Requests.updateListItem(itemID, { content: input }).then(fetchData);
   };
 
+  const updateListItemOpt = (itemID: number, input: string) => {
+    setAllListItems(
+      allListItems.map((item) =>
+        item.id === itemID ? { ...item, content: input } : item
+      )
+    );
+
+    return Requests.updateListItemOptimistic(itemID, { content: input }).then(
+      (response) => {
+        if (!response.ok) {
+          setAllListItems(allListItems);
+        } else return;
+      }
+    );
+  };
+
   const deleteListItem = (itemID: number) => {
     return Requests.deleteListItem(itemID).then(fetchData);
+  };
+
+  const deleteListItemOpt = (itemID: number) => {
+    setAllListItems(allListItems.filter((item) => item.id !== itemID));
+    return Requests.deleteListItemOptimistic(itemID).then((response) => {
+      if (!response.ok) {
+        setAllListItems(allListItems);
+      } else return;
+    });
   };
 
   useEffect(() => {
@@ -52,8 +77,8 @@ function App() {
               useReact={useReact}
               postNewItem={postNewItem}
               itemsList={allListItems}
-              updateListItem={updateListItem}
-              deleteListItem={deleteListItem}
+              updateListItem={updateListItemOpt}
+              deleteListItem={deleteListItemOpt}
             />
           )}
         </ScreenLayout>
