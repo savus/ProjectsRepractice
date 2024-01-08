@@ -24,6 +24,21 @@ function App() {
     return Requests.postNewItem(item).then(fetchData);
   };
 
+  const postNewItemOpt = (item: Omit<TListItem, "id">) => {
+    const highestListItemId = allListItems.sort((a, b) => a.id - b.id)[
+      allListItems.length - 1
+    ].id;
+    const nextItemId = highestListItemId + 1;
+    const newItem = { ...item, id: nextItemId };
+    setAllListItems([...allListItems, newItem]);
+
+    return Requests.postNewItemOptimistic(newItem).then((response) => {
+      if (!response.ok) {
+        setAllListItems(allListItems);
+      } else return;
+    });
+  };
+
   const updateListItem = (itemID: number, input: string) => {
     return Requests.updateListItem(itemID, { content: input }).then(fetchData);
   };

@@ -13,7 +13,7 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json()),
 
-  postNewItemOptimistic: (item: Omit<TListItem, "id">) =>
+  postNewItemOptimistic: (item: TListItem) =>
     fetch(`${BASE_URL}/ListItems`, {
       method: "POST",
       body: JSON.stringify(item),
