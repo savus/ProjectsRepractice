@@ -10,6 +10,8 @@ export class MainHeader extends Component<{
   useReact: boolean;
   activeLinkState: TActiveLinkState;
   setActiveLinkState: (activeLinkState: TActiveLinkState) => void;
+  useOptimisticRendering: boolean;
+  setUseOptimisticRendering: (optimisticRendering: boolean) => void;
 }> {
   state: State = {
     ariaExpandedState: false,
@@ -17,7 +19,13 @@ export class MainHeader extends Component<{
 
   render() {
     const { ariaExpandedState } = this.state;
-    const { useReact, activeLinkState, setActiveLinkState } = this.props;
+    const {
+      useReact,
+      activeLinkState,
+      setActiveLinkState,
+      useOptimisticRendering,
+      setUseOptimisticRendering,
+    } = this.props;
     return (
       <>
         <header id="main-header" className="container header-primary">
@@ -60,10 +68,13 @@ export class MainHeader extends Component<{
                 onClick={() => {
                   if (useReact) {
                     setActiveLinkState("item 2");
+                    setUseOptimisticRendering(!useOptimisticRendering);
                   }
                 }}
               >
-                Item 2
+                {`${
+                  useOptimisticRendering ? "Turn off" : "Turn on"
+                } Optimistic Rendering`}
               </li>
               <li
                 className={`nav-link ${

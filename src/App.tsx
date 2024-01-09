@@ -15,14 +15,25 @@ function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);
   const [activeLinkState, setActiveLinkState] =
     useState<TActiveLinkState>("none");
-  const useOptimisticRendering = true;
+  const [useOptimisticRendering, setUseOptimisticRendering] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = () => {
-    return Requests.getAllListItems().then(setAllListItems);
+    setIsLoading(true);
+    return Requests.getAllListItems()
+      .then(setAllListItems)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const postNewItem = (item: Omit<TListItem, "id">) => {
-    return Requests.postNewItem(item).then(fetchData);
+    setIsLoading(true);
+    return Requests.postNewItem(item)
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const postNewItemOpt = (item: Omit<TListItem, "id">) => {
@@ -42,7 +53,12 @@ function App() {
   };
 
   const updateListItem = (itemID: number, input: string) => {
-    return Requests.updateListItem(itemID, { content: input }).then(fetchData);
+    setIsLoading(true);
+    return Requests.updateListItem(itemID, { content: input })
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const updateListItemOpt = (itemID: number, input: string) => {
@@ -62,7 +78,12 @@ function App() {
   };
 
   const deleteListItem = (itemID: number) => {
-    return Requests.deleteListItem(itemID).then(fetchData);
+    setIsLoading(true);
+    return Requests.deleteListItem(itemID)
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const deleteListItemOpt = (itemID: number) => {
@@ -86,6 +107,10 @@ function App() {
           activeLinkState={activeLinkState}
           setActiveLinkState={(activeLinkState) => {
             setActiveLinkState(activeLinkState);
+          }}
+          useOptimisticRendering={useOptimisticRendering}
+          setUseOptimisticRendering={(optimisticRendering) => {
+            setUseOptimisticRendering(optimisticRendering);
           }}
         />
         <ScreenLayout
