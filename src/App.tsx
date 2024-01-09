@@ -15,6 +15,7 @@ function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);
   const [activeLinkState, setActiveLinkState] =
     useState<TActiveLinkState>("none");
+  const useOptimisticRendering = true;
 
   const fetchData = () => {
     return Requests.getAllListItems().then(setAllListItems);
@@ -25,9 +26,10 @@ function App() {
   };
 
   const postNewItemOpt = (item: Omit<TListItem, "id">) => {
-    const highestListItemId = allListItems.sort((a, b) => a.id - b.id)[
-      allListItems.length - 1
-    ].id;
+    const highestListItemId =
+      allListItems.length > 0
+        ? allListItems.sort((a, b) => a.id - b.id)[allListItems.length - 1].id
+        : 0;
     const nextItemId = highestListItemId + 1;
     const newItem = { ...item, id: nextItemId };
     setAllListItems([...allListItems, newItem]);
@@ -86,16 +88,22 @@ function App() {
             setActiveLinkState(activeLinkState);
           }}
         />
-        <ScreenLayout id={"to-do"}>
-          {activeLinkState === "to-do" && (
-            <ToDoList
-              useReact={useReact}
-              postNewItem={postNewItem}
-              itemsList={allListItems}
-              updateListItem={updateListItemOpt}
-              deleteListItem={deleteListItemOpt}
-            />
-          )}
+        <ScreenLayout
+          id={"to-do"}
+          activeLinkState={activeLinkState}
+          dataAnimation="slideFadeInRight"
+        >
+          <ToDoList
+            useReact={useReact}
+            postNewItem={useOptimisticRendering ? postNewItemOpt : postNewItem}
+            itemsList={allListItems}
+            updateListItem={
+              useOptimisticRendering ? updateListItemOpt : updateListItem
+            }
+            deleteListItem={
+              useOptimisticRendering ? deleteListItemOpt : deleteListItem
+            }
+          />
         </ScreenLayout>
       </MainSectionLayout>
     </>

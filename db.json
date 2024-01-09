@@ -1,3 +1,24 @@
 {
-  "ListItems": []
+  "ListItems": [
+    {
+      "content": "item 1",
+      "id": 1
+    },
+    {
+      "content": "item 2",
+      "id": 2
+    },
+    {
+      "content": "item 3",
+      "id": 3
+    },
+    {
+      "content": "item 4",
+      "id": 4
+    },
+    {
+      "content": "item 5",
+      "id": 5
+    }
+  ]
 }
