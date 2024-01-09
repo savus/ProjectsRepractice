@@ -5,10 +5,12 @@ export const ListItemComponent = ({
   item: { id, content },
   updateListItem,
   deleteListItem,
+  isLoading,
 }: {
   item: TListItem;
   updateListItem: (id: number, input: string) => Promise<unknown>;
   deleteListItem: (id: number) => Promise<unknown>;
+  isLoading: boolean;
 }) => {
   const [editModeState, setEditModeState] = useState<"edit-mode" | "">("");
   const [itemInputState, setItemInputState] = useState(content);
@@ -27,7 +29,7 @@ export const ListItemComponent = ({
       <div className="btn-group">
         <button
           className="edit-button btn btn-primary"
-          data-tooltip="Click to edit"
+          data-tooltip={`${isLoading ? "Waiting..." : "Click to edit"}`}
           onClick={() => {
             if (editModeState === "") {
               setEditModeState("edit-mode");
@@ -36,17 +38,19 @@ export const ListItemComponent = ({
               updateListItem(id, itemInputState);
             }
           }}
+          disabled={isLoading}
         >
-          Edit
+          {`${isLoading ? "Waiting..." : "Edit"}`}
         </button>
         <button
           className="delete-button btn btn-primary"
-          data-tooltip="Click to delete"
+          data-tooltip={`${isLoading ? "Waiting..." : "Click to delete"}`}
           onClick={() => {
             deleteListItem(id);
           }}
+          disabled={isLoading}
         >
-          Delete
+          {`${isLoading ? "Waiting..." : "Delete"}`}
         </button>
       </div>
     </li>

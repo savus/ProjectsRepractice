@@ -128,6 +128,7 @@ function App() {
             deleteListItem={
               useOptimisticRendering ? deleteListItemOpt : deleteListItem
             }
+            isLoading={isLoading}
           />
         </ScreenLayout>
       </MainSectionLayout>

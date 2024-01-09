@@ -18,6 +18,7 @@ export class ToDoList extends Component<{
   postNewItem: (item: Omit<TListItem, "id">) => Promise<unknown>;
   updateListItem: (id: number, input: string) => Promise<unknown>;
   deleteListItem: (id: number) => Promise<unknown>;
+  isLoading: boolean;
 }> {
   state: State = {
     itemFormActiveState: "",
@@ -30,8 +31,14 @@ export class ToDoList extends Component<{
     const formInputErrorMessage = "Item must have more than 0 characters";
     const { itemFormActiveState, toolTipText, newItemInput, submitAttempted } =
       this.state;
-    const { useReact, itemsList, updateListItem, deleteListItem, postNewItem } =
-      this.props;
+    const {
+      useReact,
+      itemsList,
+      updateListItem,
+      deleteListItem,
+      postNewItem,
+      isLoading,
+    } = this.props;
 
     const formInputIsValid = isListItemValid(newItemInput);
 
@@ -79,8 +86,10 @@ export class ToDoList extends Component<{
                 e.preventDefault();
                 this.setState({ submitAttempted: true });
                 if (!doBadInputsExist) {
-                  postNewItem({ content: newItemInput });
-                  resetValues();
+                  if (!isLoading) {
+                    postNewItem({ content: newItemInput });
+                    resetValues();
+                  }
                 }
               }}
             >
@@ -103,7 +112,7 @@ export class ToDoList extends Component<{
               <input
                 type="submit"
                 id="add-item-confirm"
-                value="Confirm"
+                value={`${isLoading ? "Waiting..." : "Confirm"}`}
                 className="btn btn-primary"
               />
             </form>
@@ -116,6 +125,7 @@ export class ToDoList extends Component<{
                   item={item}
                   updateListItem={updateListItem}
                   deleteListItem={deleteListItem}
+                  isLoading={isLoading}
                 />
               ))}
             </ul>
