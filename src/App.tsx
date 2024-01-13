@@ -131,6 +131,11 @@ function App() {
             isLoading={isLoading}
           />
         </ScreenLayout>
+        <ScreenLayout
+          id={"image-gallery"}
+          activeLinkState={activeLinkState}
+          data-animation={"slideFadeInRight"}
+        ></ScreenLayout>
       </MainSectionLayout>
     </>
   );
