@@ -15,7 +15,6 @@ function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);
   const [activeLinkState, setActiveLinkState] =
     useState<TActiveLinkState>("none");
-  const [useOptimisticRendering, setUseOptimisticRendering] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = () => {
@@ -108,10 +107,6 @@ function App() {
           setActiveLinkState={(activeLinkState) => {
             setActiveLinkState(activeLinkState);
           }}
-          useOptimisticRendering={useOptimisticRendering}
-          setUseOptimisticRendering={(optimisticRendering) => {
-            setUseOptimisticRendering(optimisticRendering);
-          }}
         />
         <ScreenLayout
           id={"to-do"}
@@ -120,19 +115,15 @@ function App() {
         >
           <ToDoList
             useReact={useReact}
-            postNewItem={useOptimisticRendering ? postNewItemOpt : postNewItem}
+            postNewItem={postNewItemOpt}
             itemsList={allListItems}
-            updateListItem={
-              useOptimisticRendering ? updateListItemOpt : updateListItem
-            }
-            deleteListItem={
-              useOptimisticRendering ? deleteListItemOpt : deleteListItem
-            }
+            updateListItem={updateListItemOpt}
+            deleteListItem={deleteListItemOpt}
             isLoading={isLoading}
           />
         </ScreenLayout>
         <ScreenLayout
-          id={"image-gallery"}
+          id={"portfolio-gallery"}
           activeLinkState={activeLinkState}
           data-animation={"slideFadeInRight"}
         ></ScreenLayout>

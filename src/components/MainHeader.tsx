@@ -10,8 +10,6 @@ export class MainHeader extends Component<{
   useReact: boolean;
   activeLinkState: TActiveLinkState;
   setActiveLinkState: (activeLinkState: TActiveLinkState) => void;
-  useOptimisticRendering: boolean;
-  setUseOptimisticRendering: (optimisticRendering: boolean) => void;
 }> {
   state: State = {
     ariaExpandedState: false,
@@ -19,13 +17,7 @@ export class MainHeader extends Component<{
 
   render() {
     const { ariaExpandedState } = this.state;
-    const {
-      useReact,
-      activeLinkState,
-      setActiveLinkState,
-      useOptimisticRendering,
-      setUseOptimisticRendering,
-    } = this.props;
+    const { useReact, activeLinkState, setActiveLinkState } = this.props;
     return (
       <>
         <header id="main-header" className="container header-primary">
@@ -62,19 +54,16 @@ export class MainHeader extends Component<{
               </li>
               <li
                 className={`nav-link ${
-                  activeLinkState === "item 2" ? "active" : ""
+                  activeLinkState === "portfolio-gallery" ? "active" : ""
                 }`}
-                data-link=""
+                data-link="portfolio-gallery"
                 onClick={() => {
                   if (useReact) {
-                    setActiveLinkState("item 2");
-                    setUseOptimisticRendering(!useOptimisticRendering);
+                    setActiveLinkState("portfolio-gallery");
                   }
                 }}
               >
-                {`${
-                  useOptimisticRendering ? "Turn off" : "Turn on"
-                } Optimistic Rendering`}
+                Portfolio Gallery
               </li>
               <li
                 className={`nav-link ${

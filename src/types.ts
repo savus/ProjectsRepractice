@@ -1,7 +1,7 @@
 export type TActiveLinkState =
   | "none"
   | "to-do"
-  | "item 2"
+  | "portfolio-gallery"
   | "item 3"
   | "item 4";
 
