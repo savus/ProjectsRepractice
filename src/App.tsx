@@ -125,8 +125,28 @@ function App() {
         <ScreenLayout
           id={"portfolio-gallery"}
           activeLinkState={activeLinkState}
-          data-animation={"slideFadeInRight"}
-        ></ScreenLayout>
+          dataAnimation={"slideFadeInRight"}
+        >
+          <section className="portfolio-section">
+            <div className="container search-container">
+              <label htmlFor="search">
+                <input
+                  type="text"
+                  id="search"
+                  className="search-input"
+                  placeholder="Search..."
+                />
+                <i className="fas fa-search"></i>
+              </label>
+            </div>
+            <ul className="ul-defaults-none portfolio-filter-nav">
+              <li className="filter-link">All Work</li>
+              <li className="filter-link">Web Development</li>
+              <li className="filter-link">App Development</li>
+              <li className="filter-link">Ui Design</li>
+            </ul>
+          </section>
+        </ScreenLayout>
       </MainSectionLayout>
     </>
   );
