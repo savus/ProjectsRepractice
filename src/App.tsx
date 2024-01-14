@@ -10,6 +10,7 @@ import { TActiveLinkState, TListItem } from "./types";
 import { Requests } from "./api";
 
 import "./css/portfolio-gallery.css";
+import { portfolioImages } from "./portfolio-images";
 
 const useReact = true;
 
@@ -150,7 +151,7 @@ function App() {
             <div className="portfolio-grid">
               <div className="portfolio-card">
                 <div className="card-body">
-                  <img src="" alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
                     <div>Web Development</div>
                     <h3>Food Website</h3>
