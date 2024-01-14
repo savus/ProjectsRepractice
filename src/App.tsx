@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { TActiveLinkState, TListItem } from "./types";
 import { Requests } from "./api";
 
+import "./css/portfolio-gallery.css";
+
 const useReact = true;
 
 function App() {
@@ -26,14 +28,14 @@ function App() {
       });
   };
 
-  const postNewItem = (item: Omit<TListItem, "id">) => {
-    setIsLoading(true);
-    return Requests.postNewItem(item)
-      .then(fetchData)
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+  // const postNewItem = (item: Omit<TListItem, "id">) => {
+  //   setIsLoading(true);
+  //   return Requests.postNewItem(item)
+  //     .then(fetchData)
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
 
   const postNewItemOpt = (item: Omit<TListItem, "id">) => {
     const highestListItemId =
@@ -51,14 +53,14 @@ function App() {
     });
   };
 
-  const updateListItem = (itemID: number, input: string) => {
-    setIsLoading(true);
-    return Requests.updateListItem(itemID, { content: input })
-      .then(fetchData)
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+  // const updateListItem = (itemID: number, input: string) => {
+  //   setIsLoading(true);
+  //   return Requests.updateListItem(itemID, { content: input })
+  //     .then(fetchData)
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
 
   const updateListItemOpt = (itemID: number, input: string) => {
     setAllListItems(
@@ -76,14 +78,14 @@ function App() {
     );
   };
 
-  const deleteListItem = (itemID: number) => {
-    setIsLoading(true);
-    return Requests.deleteListItem(itemID)
-      .then(fetchData)
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
+  // const deleteListItem = (itemID: number) => {
+  //   setIsLoading(true);
+  //   return Requests.deleteListItem(itemID)
+  //     .then(fetchData)
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
 
   const deleteListItemOpt = (itemID: number) => {
     setAllListItems(allListItems.filter((item) => item.id !== itemID));
@@ -138,13 +140,13 @@ function App() {
                 />
                 <i className="fas fa-search"></i>
               </label>
+              <ul className="ul-defaults-none portfolio-filter-nav">
+                <li className="filter-link active">All Work</li>
+                <li className="filter-link">Web Development</li>
+                <li className="filter-link">App Development</li>
+                <li className="filter-link">Ui Design</li>
+              </ul>
             </div>
-            <ul className="ul-defaults-none portfolio-filter-nav">
-              <li className="filter-link">All Work</li>
-              <li className="filter-link">Web Development</li>
-              <li className="filter-link">App Development</li>
-              <li className="filter-link">Ui Design</li>
-            </ul>
           </section>
         </ScreenLayout>
       </MainSectionLayout>
