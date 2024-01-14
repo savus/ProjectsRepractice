@@ -12,7 +12,7 @@ import { Requests } from "./api";
 import "./css/portfolio-gallery.css";
 import { portfolioImages } from "./portfolio-images";
 
-const useReact = true;
+const useReact = false;
 
 function App() {
   const [allListItems, setAllListItems] = useState<TListItem[]>([]);
@@ -142,14 +142,85 @@ function App() {
                 <i className="fas fa-search"></i>
               </label>
               <ul className="ul-defaults-none portfolio-filter-nav">
-                <li className="filter-link active">All Work</li>
-                <li className="filter-link">Web Development</li>
-                <li className="filter-link">App Development</li>
-                <li className="filter-link">Ui Design</li>
+                <li className="filter-link active" data-filter="all">
+                  All Work
+                </li>
+                <li className="filter-link" data-filter="web">
+                  Web Development
+                </li>
+                <li className="filter-link" data-filter="app">
+                  App Development
+                </li>
+                <li className="filter-link" data-filter="ui">
+                  Ui Design
+                </li>
               </ul>
             </div>
             <div className="portfolio-grid">
-              <div className="portfolio-card">
+              <div className="portfolio-card" data-item="web">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="web">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="web">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="web">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="app">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="app">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="ui">
+                <div className="card-body">
+                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <a href="#" className="card-popup-box">
+                    <div>Web Development</div>
+                    <h3>Food Website</h3>
+                  </a>
+                </div>
+              </div>
+              <div className="portfolio-card" data-item="ui">
                 <div className="card-body">
                   <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
