@@ -168,64 +168,64 @@ function App() {
               </div>
               <div className="portfolio-card" data-item="web">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio2} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
                     <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <h3>Skate Website</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="web">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio3} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
                     <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <h3>Art Website</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="web">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio4} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
                     <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <h3>Website Layouts</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="app">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio5} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
-                    <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <div>APP Development</div>
+                    <h3>Money App</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="app">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio6} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
-                    <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <div>APP Development</div>
+                    <h3>Game App</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="ui">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio7} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
-                    <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <div>UI Design</div>
+                    <h3>Cool UI</h3>
                   </a>
                 </div>
               </div>
               <div className="portfolio-card" data-item="ui">
                 <div className="card-body">
-                  <img src={portfolioImages.Portfolio1} alt="portfolio-icon" />
+                  <img src={portfolioImages.Portfolio8} alt="portfolio-icon" />
                   <a href="#" className="card-popup-box">
-                    <div>Web Development</div>
-                    <h3>Food Website</h3>
+                    <div>UI</div>
+                    <h3>Game UI</h3>
                   </a>
                 </div>
               </div>

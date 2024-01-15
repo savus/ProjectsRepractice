@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const dataFilter = "[data-filter]";
     const portfolioCardData = "[data-item]";
+    const searchBoxId = "search";
+    const searchBox = document.getElementById("search");
 
     const navlinksNavbar = document.querySelector(navbarClass);
 
