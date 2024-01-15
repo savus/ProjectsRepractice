@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { TListItem } from "../types";
+import { useListItems } from "./providers/ListItemsProvider";
 
 export const ListItemComponent = ({
   item: { id, content },
-  updateListItem,
-  deleteListItem,
   isLoading,
 }: {
   item: TListItem;
-  updateListItem: (id: number, input: string) => Promise<unknown>;
-  deleteListItem: (id: number) => Promise<unknown>;
   isLoading: boolean;
 }) => {
+  const { updateListItemOpt, deleteListItemOpt } = useListItems();
   const [editModeState, setEditModeState] = useState<"edit-mode" | "">("");
   const [itemInputState, setItemInputState] = useState(content);
   return (
@@ -35,7 +33,7 @@ export const ListItemComponent = ({
               setEditModeState("edit-mode");
             } else {
               setEditModeState("");
-              updateListItem(id, itemInputState);
+              updateListItemOpt(id, itemInputState);
             }
           }}
           disabled={isLoading}
@@ -46,7 +44,7 @@ export const ListItemComponent = ({
           className="delete-button btn btn-primary"
           data-tooltip={`${isLoading ? "Waiting..." : "Click to delete"}`}
           onClick={() => {
-            deleteListItem(id);
+            deleteListItemOpt(id);
           }}
           disabled={isLoading}
         >
