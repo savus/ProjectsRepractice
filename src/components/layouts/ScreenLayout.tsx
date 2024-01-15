@@ -1,17 +1,16 @@
 import { ReactNode } from "react";
-import { TActiveLinkState } from "../../types";
+import { useLinkState } from "../providers/ActiveLinkProvider";
 
 export const ScreenLayout = ({
   id,
   children,
   dataAnimation,
-  activeLinkState,
 }: {
   id: string;
   children: ReactNode;
   dataAnimation: string;
-  activeLinkState: TActiveLinkState;
 }) => {
+  const { activeLinkState } = useLinkState();
   const screenIsActive = () => (activeLinkState === id ? "active" : "");
   return (
     <>

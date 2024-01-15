@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const useJavascript = true;
+  const useJavascript = false;
   if (useJavascript) {
     const navLinkClass = ".nav-link";
     const navbarClass = ".navbar-nav";
