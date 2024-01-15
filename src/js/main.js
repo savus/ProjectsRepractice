@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const dataFilter = "[data-filter]";
     const portfolioCardData = "[data-item]";
     const searchBoxId = "search";
-    const searchBox = document.getElementById("search");
+    const searchBox = document.getElementById(searchBoxId);
 
     const navlinksNavbar = document.querySelector(navbarClass);
 
@@ -70,6 +70,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const filterLinks = document.querySelectorAll(dataFilter);
     const portfolioCardItems = document.querySelectorAll(portfolioCardData);
+
+    searchBox.addEventListener("keyup", (e) => {
+      const searchInput = e.target.value.toLowerCase().trim();
+
+      portfolioCardItems.forEach((card) => {
+        const dataItem = card.dataset.item;
+        if (searchInput.includes(dataItem)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    });
 
     for (const link of filterLinks) {
       link.addEventListener("click", function () {
