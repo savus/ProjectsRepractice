@@ -5,14 +5,8 @@ import { isListItemValid } from "../utils/validations";
 import { ErrorMessage } from "./shared/ErrorMessage";
 import { useListItems } from "./providers/ListItemsProvider";
 
-export const ToDoList = ({
-  useReact,
-  isLoading,
-}: {
-  useReact: boolean;
-  isLoading: boolean;
-}) => {
-  const { allListItems, postNewItemOpt } = useListItems();
+export const ToDoList = ({ useReact }: { useReact: boolean }) => {
+  const { allListItems, postNewItemOpt, isLoading } = useListItems();
 
   const [itemFormActiveState, setItemFormActiveState] = useState<"active" | "">(
     ""
@@ -99,11 +93,7 @@ export const ToDoList = ({
         <div id="to-do-body">
           <ul id="list-container" className="ul-defaults-none">
             {sortedList.map((item) => (
-              <ListItemComponent
-                key={item.id}
-                item={item}
-                isLoading={isLoading}
-              />
+              <ListItemComponent key={item.id} item={item} />
             ))}
           </ul>
         </div>

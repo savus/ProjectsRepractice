@@ -10,8 +10,13 @@ import { Requests } from "../../api";
 
 type TListItemsProvider = {
   allListItems: TListItem[];
+  isLoading: boolean;
+  setIsLoading: (input: boolean) => void;
+  postNewItem: (item: Omit<TListItem, "id">) => void;
   postNewItemOpt: (item: Omit<TListItem, "id">) => void;
+  updateListItem: (id: number, input: string) => void;
   updateListItemOpt: (id: number, input: string) => void;
+  deleteListItem: (id: number) => void;
   deleteListItemOpt: (id: number) => void;
 };
 
@@ -33,14 +38,14 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
       });
   };
 
-  // const postNewItem = (item: Omit<TListItem, "id">) => {
-  //   setIsLoading(true);
-  //   return Requests.postNewItem(item)
-  //     .then(fetchData)
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
+  const postNewItem = (item: Omit<TListItem, "id">) => {
+    setIsLoading(true);
+    return Requests.postNewItem(item)
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   const postNewItemOpt = (item: Omit<TListItem, "id">) => {
     const highestListItemId =
@@ -58,14 +63,14 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
     });
   };
 
-  // const updateListItem = (itemID: number, input: string) => {
-  //   setIsLoading(true);
-  //   return Requests.updateListItem(itemID, { content: input })
-  //     .then(fetchData)
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
+  const updateListItem = (itemID: number, input: string) => {
+    setIsLoading(true);
+    return Requests.updateListItem(itemID, { content: input })
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   const updateListItemOpt = (id: number, input: string) => {
     setAllListItems(
@@ -83,14 +88,14 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
     );
   };
 
-  // const deleteListItem = (itemID: number) => {
-  //   setIsLoading(true);
-  //   return Requests.deleteListItem(itemID)
-  //     .then(fetchData)
-  //     .finally(() => {
-  //       setIsLoading(false);
-  //     });
-  // };
+  const deleteListItem = (itemID: number) => {
+    setIsLoading(true);
+    return Requests.deleteListItem(itemID)
+      .then(fetchData)
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
 
   const deleteListItemOpt = (id: number) => {
     setAllListItems(allListItems.filter((item) => item.id !== id));
@@ -109,8 +114,13 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
     <ListItemContext.Provider
       value={{
         allListItems,
+        isLoading,
+        setIsLoading,
+        postNewItem,
         postNewItemOpt,
+        updateListItem,
         updateListItemOpt,
+        deleteListItem,
         deleteListItemOpt,
       }}
     >

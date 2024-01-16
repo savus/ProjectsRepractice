@@ -5,26 +5,27 @@ import { ToDoList } from "./components/ToDoList";
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
-import { useState } from "react";
 
 import "./css/portfolio-gallery.css";
 import { portfolioImages } from "./portfolio-images";
 import { ActiveLinkProvider } from "./components/providers/ActiveLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
+import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 
 const useReact = true;
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false);
   return (
     <>
       <MainSectionLayout>
         <ActiveLinkProvider>
           <MainHeader useReact={useReact} />
           <ScreenLayout id={"to-do"} dataAnimation="slideFadeInRight">
-            <ListItemsProvider>
-              <ToDoList useReact={useReact} isLoading={isLoading} />
-            </ListItemsProvider>
+            <OptimisticRenderingProvider>
+              <ListItemsProvider>
+                <ToDoList useReact={useReact} />
+              </ListItemsProvider>
+            </OptimisticRenderingProvider>
           </ScreenLayout>
           <ScreenLayout
             id={"portfolio-gallery"}

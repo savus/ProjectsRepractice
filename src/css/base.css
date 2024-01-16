@@ -144,7 +144,7 @@ img {
   background-color: var(--button-alternative);
 }
 
-.btn-primary:active {
+.btn-primary:active:not(:disabled) {
   background-color: var(--button-base);
   position: relative;
   bottom: -2px;

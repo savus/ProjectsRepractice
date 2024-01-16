@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { TListItem } from "../types";
 import { useListItems } from "./providers/ListItemsProvider";
+import { useOptRendering } from "./providers/OptimisticRenderingProvider";
 
 export const ListItemComponent = ({
   item: { id, content },
-  isLoading,
 }: {
   item: TListItem;
-  isLoading: boolean;
 }) => {
-  const { updateListItemOpt, deleteListItemOpt } = useListItems();
+  const {
+    updateListItem,
+    updateListItemOpt,
+    deleteListItem,
+    deleteListItemOpt,
+    isLoading,
+  } = useListItems();
+  const { useOptimisticRendering } = useOptRendering();
   const [editModeState, setEditModeState] = useState<"edit-mode" | "">("");
   const [itemInputState, setItemInputState] = useState(content);
   return (
@@ -33,7 +39,9 @@ export const ListItemComponent = ({
               setEditModeState("edit-mode");
             } else {
               setEditModeState("");
-              updateListItemOpt(id, itemInputState);
+              !useOptimisticRendering
+                ? updateListItem(id, itemInputState)
+                : updateListItemOpt(id, itemInputState);
             }
           }}
           disabled={isLoading}
@@ -44,7 +52,9 @@ export const ListItemComponent = ({
           className="delete-button btn btn-primary"
           data-tooltip={`${isLoading ? "Waiting..." : "Click to delete"}`}
           onClick={() => {
-            deleteListItemOpt(id);
+            !useOptimisticRendering
+              ? deleteListItem(id)
+              : deleteListItemOpt(id);
           }}
           disabled={isLoading}
         >
