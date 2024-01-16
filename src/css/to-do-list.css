@@ -83,6 +83,7 @@
 
 .list-item .item-input-container {
   display: none;
+  padding: 0.3rem 0.5rem;
 }
 
 .list-item.edit-mode .item-input-container {
