@@ -5,6 +5,8 @@ import { useLinkState } from "./providers/ActiveLinkProvider";
 export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
   const [ariaExpandedState, setAriaExpandedState] = useState(false);
   const { activeLinkState, setActiveLinkState } = useLinkState();
+  const isLinkActive = (input: string) =>
+    activeLinkState === input ? "active" : "";
   return (
     <>
       <header id="main-header" className="container header-primary">
@@ -27,9 +29,7 @@ export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
           </button>
           <ul className="navbar-nav ul-defaults-none flex-and-align">
             <li
-              className={`nav-link ${
-                activeLinkState === "to-do" ? "active" : ""
-              }`}
+              className={`nav-link ${isLinkActive("to-do")}`}
               data-link="to-do"
               onClick={() => {
                 if (useReact) {
@@ -40,9 +40,7 @@ export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
               To Do List
             </li>
             <li
-              className={`nav-link ${
-                activeLinkState === "portfolio-gallery" ? "active" : ""
-              }`}
+              className={`nav-link ${isLinkActive("photo-gallery")}`}
               data-link="portfolio-gallery"
               onClick={() => {
                 if (useReact) {
@@ -53,9 +51,7 @@ export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
               Portfolio Gallery
             </li>
             <li
-              className={`nav-link ${
-                activeLinkState === "item 3" ? "active" : ""
-              }`}
+              className={`nav-link ${isLinkActive("item 3")}`}
               data-link=""
               onClick={() => {
                 if (useReact) {
@@ -66,9 +62,7 @@ export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
               Item 3
             </li>
             <li
-              className={`nav-link ${
-                activeLinkState === "item 4" ? "active" : ""
-              }`}
+              className={`nav-link ${isLinkActive("item 4")}`}
               data-link=""
               onClick={() => {
                 if (useReact) {
