@@ -40,7 +40,7 @@ export const MainHeader = ({ useReact }: { useReact: ReactNode }) => {
               To Do List
             </li>
             <li
-              className={`nav-link ${isLinkActive("photo-gallery")}`}
+              className={`nav-link ${isLinkActive("portfolio-gallery")}`}
               data-link="portfolio-gallery"
               onClick={() => {
                 if (useReact) {
