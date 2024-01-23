@@ -1,4 +1,4 @@
-import { TListItem } from "./types";
+import { TListItem, TPortfolioCard } from "./types";
 
 const BASE_URL = "http://localhost:3000";
 
@@ -43,4 +43,7 @@ export const Requests = {
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "DELETE",
     }),
+
+  getAllPortfolioCards: (): Promise<TPortfolioCard[]> =>
+    fetch(`${BASE_URL}/PortfolioCards`).then((response) => response.json()),
 };

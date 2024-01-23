@@ -13,3 +13,11 @@ export type TListItem = {
 };
 
 export type InputProps = ComponentProps<"input">;
+
+export type TPortfolioCard = {
+  id: number;
+  dataItem: string;
+  image: string;
+  popupTitle: string;
+  popupDescription: string;
+};

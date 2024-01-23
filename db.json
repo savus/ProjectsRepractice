@@ -16,5 +16,64 @@
       "content": "fourth item",
       "id": 6
     }
+  ],
+
+  "PortfolioCards": [
+    {
+      "id": 0,
+      "dataItem": "web",
+      "image": "./src/assets/images/portfolio-1.jpg",
+      "popupTitle": "Web Development",
+      "popupDescription": "Food Website"
+    },
+    {
+      "id": 1,
+      "dataItem": "web",
+      "image": "./src/assets/images/portfolio-2.jpg",
+      "popupTitle": "Web Development",
+      "popupDescription": "Skate Website"
+    },
+    {
+      "id": 2,
+      "dataItem": "web",
+      "image": "./src/assets/images/portfolio-3.jpg",
+      "popupTitle": "Web Development",
+      "popupDescription": "Art Website"
+    },
+    {
+      "id": 3,
+      "dataItem": "web",
+      "image": "./src/assets/images/portfolio-4.jpg",
+      "popupTitle": "Web Development",
+      "popupDescription": "Website Layouts"
+    },
+    {
+      "id": 4,
+      "dataItem": "app",
+      "image": "./src/assets/images/portfolio-5.jpg",
+      "popupTitle": "APP Development",
+      "popupDescription": "Money App"
+    },
+    {
+      "id": 5,
+      "dataItem": "app",
+      "image": "./src/assets/images/portfolio-6.jpg",
+      "popupTitle": "APP Development",
+      "popupDescription": "Game App"
+    },
+    {
+      "id": 6,
+      "dataItem": "ui",
+      "image": "./src/assets/images/portfolio-7.jpg",
+      "popupTitle": "UI Design",
+      "popupDescription": "Cool UI"
+    },
+    {
+      "id": 7,
+      "dataItem": "ui",
+      "image": "./src/assets/images/portfolio-8.jpg",
+      "popupTitle": "UI Design",
+      "popupDescription": "Game UI"
+    }
   ]
 }

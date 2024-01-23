@@ -13,8 +13,23 @@ import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 import { UseReactProvider } from "./components/providers/UseReactProvider";
 import { FilterLink } from "./components/shared/Portfolio/FilterLink";
+import { Requests } from "./api";
+import { useEffect, useState } from "react";
+import { TPortfolioCard } from "./types";
+import { PortfolioCard } from "./components/PortfolioCard";
 
 function App() {
+  const [allPortfolioCards, setAllPortfolioCards] = useState<TPortfolioCard[]>(
+    []
+  );
+  const refetchData = () => {
+    Requests.getAllPortfolioCards().then(setAllPortfolioCards);
+  };
+
+  useEffect(() => {
+    refetchData();
+  }, []);
+
   return (
     <>
       <MainSectionLayout>
@@ -52,102 +67,9 @@ function App() {
                 </ul>
               </div>
               <div className="portfolio-grid">
-                <div className="portfolio-card" data-item="web">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio1}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>Web Development</div>
-                      <h3>Food Website</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="web">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio2}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>Web Development</div>
-                      <h3>Skate Website</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="web">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio3}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>Web Development</div>
-                      <h3>Art Website</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="web">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio4}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>Web Development</div>
-                      <h3>Website Layouts</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="app">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio5}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>APP Development</div>
-                      <h3>Money App</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="app">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio6}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>APP Development</div>
-                      <h3>Game App</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="ui">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio7}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>UI Design</div>
-                      <h3>Cool UI</h3>
-                    </a>
-                  </div>
-                </div>
-                <div className="portfolio-card" data-item="ui">
-                  <div className="card-body">
-                    <img
-                      src={portfolioImages.Portfolio8}
-                      alt="portfolio-icon"
-                    />
-                    <a href="#" className="card-popup-box">
-                      <div>UI</div>
-                      <h3>Game UI</h3>
-                    </a>
-                  </div>
-                </div>
+                {allPortfolioCards.map((card) => (
+                  <PortfolioCard key={card.id} card={card} />
+                ))}
               </div>
             </section>
           </ScreenLayout>
