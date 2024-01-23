@@ -1,3 +1,5 @@
+import { ComponentProps } from "react";
+
 export type TActiveLinkState =
   | "none"
   | "to-do-list"
@@ -9,3 +11,5 @@ export type TListItem = {
   id: number;
   content: string;
 };
+
+export type InputProps = ComponentProps<"input">;
