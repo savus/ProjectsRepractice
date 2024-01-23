@@ -4,8 +4,9 @@ import { ListItemComponent } from "./ListItemComponent";
 import { isListItemValid } from "../utils/validations";
 import { ErrorMessage } from "./shared/ErrorMessage";
 import { useListItems } from "./providers/ListItemsProvider";
+import { useReactContext } from "./providers/UseReactProvider";
 
-export const ToDoList = ({ useReact }: { useReact: boolean }) => {
+export const ToDoList = () => {
   const { allListItems, postNewItemOpt, isLoading } = useListItems();
 
   const [itemFormActiveState, setItemFormActiveState] = useState<"active" | "">(
@@ -30,6 +31,8 @@ export const ToDoList = ({ useReact }: { useReact: boolean }) => {
   const resetValues = () => {
     setSubmitAttempted(false);
   };
+
+  const { useReact } = useReactContext();
 
   return (
     <>

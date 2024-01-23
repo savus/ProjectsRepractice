@@ -11,22 +11,23 @@ import { portfolioImages } from "./portfolio-images";
 import { ActiveLinkProvider } from "./components/providers/ActiveLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
-
-const useReact = true;
+import { UseReactProvider } from "./components/providers/UseReactProvider";
 
 function App() {
   return (
     <>
       <MainSectionLayout>
         <ActiveLinkProvider>
-          <MainHeader useReact={useReact} />
-          <ScreenLayout id={"to-do-list"} dataAnimation="slideFadeInRight">
-            <OptimisticRenderingProvider>
-              <ListItemsProvider>
-                <ToDoList useReact={useReact} />
-              </ListItemsProvider>
-            </OptimisticRenderingProvider>
-          </ScreenLayout>
+          <UseReactProvider>
+            <MainHeader />
+            <ScreenLayout id={"to-do-list"} dataAnimation="slideFadeInRight">
+              <OptimisticRenderingProvider>
+                <ListItemsProvider>
+                  <ToDoList />
+                </ListItemsProvider>
+              </OptimisticRenderingProvider>
+            </ScreenLayout>
+          </UseReactProvider>
           <ScreenLayout
             id={"portfolio-gallery"}
             dataAnimation={"slideFadeInRight"}
