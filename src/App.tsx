@@ -20,7 +20,7 @@ function App() {
       <MainSectionLayout>
         <ActiveLinkProvider>
           <MainHeader useReact={useReact} />
-          <ScreenLayout id={"to-do"} dataAnimation="slideFadeInRight">
+          <ScreenLayout id={"to-do-list"} dataAnimation="slideFadeInRight">
             <OptimisticRenderingProvider>
               <ListItemsProvider>
                 <ToDoList useReact={useReact} />
