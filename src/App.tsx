@@ -12,6 +12,7 @@ import { ActiveLinkProvider } from "./components/providers/ActiveLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 import { UseReactProvider } from "./components/providers/UseReactProvider";
+import { FilterLink } from "./components/shared/Portfolio/FilterLink";
 
 function App() {
   return (
@@ -44,18 +45,10 @@ function App() {
                   <i className="fas fa-search"></i>
                 </label>
                 <ul className="ul-defaults-none portfolio-filter-nav">
-                  <li className="filter-link active" data-filter="all">
-                    All Work
-                  </li>
-                  <li className="filter-link" data-filter="web">
-                    Web Development
-                  </li>
-                  <li className="filter-link" data-filter="app">
-                    App Development
-                  </li>
-                  <li className="filter-link" data-filter="ui">
-                    Ui Design
-                  </li>
+                  <FilterLink dataFilter="all" linkText="All Work" />
+                  <FilterLink dataFilter="web" linkText="Web Development" />
+                  <FilterLink dataFilter="app" linkText="App Development" />
+                  <FilterLink dataFilter="ui" linkText="Ui Design" />
                 </ul>
               </div>
               <div className="portfolio-grid">
