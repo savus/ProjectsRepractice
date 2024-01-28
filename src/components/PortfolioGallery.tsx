@@ -3,8 +3,7 @@ import "../css/portfolio-gallery.css";
 import { FilterLink } from "./shared/Portfolio/FilterLink";
 import { usePortfolioCards } from "./providers/PortfolioCardsProvider";
 import { useState } from "react";
-
-export type TFilterLinkState = "all" | "web" | "app" | "ui";
+import { TFilterLinkState } from "../types";
 
 export const PortfolioGallery = () => {
   const { allPortfolioCards } = usePortfolioCards();

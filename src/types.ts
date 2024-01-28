@@ -7,6 +7,8 @@ export type THeaderLinkState =
   | "item 3"
   | "item 4";
 
+export type TFilterLinkState = "all" | "web" | "app" | "ui";
+
 export type TListItem = {
   id: number;
   content: string;
