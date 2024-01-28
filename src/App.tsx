@@ -6,14 +6,10 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
 
-import "./css/portfolio-gallery.css";
-import { ActiveLinkProvider } from "./components/providers/ActiveLinkProvider";
+import { HeaderLinkProvider } from "./components/providers/HeaderLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 import { UseReactProvider } from "./components/providers/UseReactProvider";
-import { Requests } from "./api";
-import { useEffect, useState } from "react";
-import { TPortfolioCard } from "./types";
 import { PortfolioGallery } from "./components/PortfolioGallery";
 import { PortfolioCardsProvider } from "./components/providers/PortfolioCardsProvider";
 
@@ -21,7 +17,7 @@ function App() {
   return (
     <>
       <MainSectionLayout>
-        <ActiveLinkProvider>
+        <HeaderLinkProvider>
           <UseReactProvider>
             <MainHeader />
             <ScreenLayout id={"to-do-list"} dataAnimation="slideFadeInRight">
@@ -40,7 +36,7 @@ function App() {
               <PortfolioGallery />
             </PortfolioCardsProvider>
           </ScreenLayout>
-        </ActiveLinkProvider>
+        </HeaderLinkProvider>
       </MainSectionLayout>
     </>
   );

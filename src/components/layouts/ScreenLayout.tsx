@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { useLinkState } from "../providers/ActiveLinkProvider";
+import { useHeaderState } from "../providers/HeaderLinkProvider";
 
 export const ScreenLayout = ({
   id,
@@ -10,8 +10,8 @@ export const ScreenLayout = ({
   children: ReactNode;
   dataAnimation: string;
 }) => {
-  const { activeLinkState } = useLinkState();
-  const screenIsActive = () => (activeLinkState === id ? "active" : "");
+  const { headerLinkState } = useHeaderState();
+  const screenIsActive = () => (headerLinkState === id ? "active" : "");
   return (
     <>
       <section

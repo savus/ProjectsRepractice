@@ -1,6 +1,6 @@
 import { ComponentProps } from "react";
 
-export type TActiveLinkState =
+export type THeaderLinkState =
   | "none"
   | "to-do-list"
   | "portfolio-gallery"

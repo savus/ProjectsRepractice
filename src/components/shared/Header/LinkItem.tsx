@@ -1,12 +1,12 @@
-import { TActiveLinkState } from "../../../types";
+import { THeaderLinkState } from "../../../types";
 import { capitalizeEachWordInString } from "../../../utils/transformations";
-import { useLinkState } from "../../providers/ActiveLinkProvider";
+import { useHeaderState } from "../../providers/HeaderLinkProvider";
 import { useReactContext } from "../../providers/UseReactProvider";
 
-export const LinkItem = ({ dataLink }: { dataLink: TActiveLinkState }) => {
+export const LinkItem = ({ dataLink }: { dataLink: THeaderLinkState }) => {
   const isLinkActive = (input: string) =>
-    activeLinkState === input ? "active" : "";
-  const { activeLinkState, setActiveLinkState } = useLinkState();
+    headerLinkState === input ? "active" : "";
+  const { headerLinkState, setHeaderLinkState } = useHeaderState();
   const { useReact } = useReactContext();
   return (
     <li
@@ -14,7 +14,7 @@ export const LinkItem = ({ dataLink }: { dataLink: TActiveLinkState }) => {
       data-link={dataLink}
       onClick={() => {
         if (useReact) {
-          setActiveLinkState(dataLink);
+          setHeaderLinkState(dataLink);
         }
       }}
     >
