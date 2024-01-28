@@ -83,6 +83,7 @@ img {
 
 .screen {
   margin-top: 20px;
+  position: absolute;
 }
 
 .ul-defaults-none {
@@ -243,7 +244,6 @@ img {
   --transition-left: -50%;
   --transition-duration: 0.35s;
   transition: var(--transition-duration) all;
-  position: relative;
   left: var(--transition-left);
   visibility: hidden;
   opacity: 0;

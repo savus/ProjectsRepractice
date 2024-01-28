@@ -22,6 +22,7 @@ type TListItemsProvider = {
 };
 
 const serverErrorMessage = "Oops... something went wrong";
+const endPoints = "ListItems";
 
 const ListItemContext = createContext<TListItemsProvider>(
   {} as TListItemsProvider
@@ -34,7 +35,7 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchData = () => {
     setIsLoading(true);
-    return Requests.getAllListItems()
+    return Requests.getAllEndpoints(endPoints)
       .then(setAllListItems)
       .catch(() => {
         toast.error(serverErrorMessage);

@@ -1,3 +1,7 @@
+#to-do-list {
+  width: 100%;
+}
+
 #to-do-body {
   box-shadow: var(--box-shadow-base);
   border-radius: 0px 0px 10px 10px;

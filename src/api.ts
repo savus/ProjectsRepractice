@@ -3,8 +3,8 @@ import { TListItem, TPortfolioCard } from "./types";
 const BASE_URL = "http://localhost:3000";
 
 export const Requests = {
-  getAllListItems: (): Promise<TListItem[]> =>
-    fetch(`${BASE_URL}/ListItems`).then((response) => response.json()),
+  getAllEndpoints: (endpoints: string) =>
+    fetch(`${BASE_URL}/${endpoints}`).then((response) => response.json()),
 
   postNewItem: (item: Omit<TListItem, "id">) =>
     fetch(`${BASE_URL}/ListItems`, {

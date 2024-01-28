@@ -7,29 +7,17 @@ import "./css/theme.css";
 import "./css/responsive.css";
 
 import "./css/portfolio-gallery.css";
-import { portfolioImages } from "./portfolio-images";
 import { ActiveLinkProvider } from "./components/providers/ActiveLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 import { UseReactProvider } from "./components/providers/UseReactProvider";
-import { FilterLink } from "./components/shared/Portfolio/FilterLink";
 import { Requests } from "./api";
 import { useEffect, useState } from "react";
 import { TPortfolioCard } from "./types";
-import { PortfolioCard } from "./components/PortfolioCard";
+import { PortfolioGallery } from "./components/PortfolioGallery";
+import { PortfolioCardsProvider } from "./components/providers/PortfolioCardsProvider";
 
 function App() {
-  const [allPortfolioCards, setAllPortfolioCards] = useState<TPortfolioCard[]>(
-    []
-  );
-  const refetchData = () => {
-    Requests.getAllPortfolioCards().then(setAllPortfolioCards);
-  };
-
-  useEffect(() => {
-    refetchData();
-  }, []);
-
   return (
     <>
       <MainSectionLayout>
@@ -48,30 +36,9 @@ function App() {
             id={"portfolio-gallery"}
             dataAnimation={"slideFadeInRight"}
           >
-            <section className="portfolio-section">
-              <div className="container search-container">
-                <label htmlFor="search">
-                  <input
-                    type="text"
-                    id="search"
-                    className="search-input"
-                    placeholder="Search..."
-                  />
-                  <i className="fas fa-search"></i>
-                </label>
-                <ul className="ul-defaults-none portfolio-filter-nav">
-                  <FilterLink dataFilter="all" linkText="All Work" />
-                  <FilterLink dataFilter="web" linkText="Web Development" />
-                  <FilterLink dataFilter="app" linkText="App Development" />
-                  <FilterLink dataFilter="ui" linkText="Ui Design" />
-                </ul>
-              </div>
-              <div className="portfolio-grid">
-                {allPortfolioCards.map((card) => (
-                  <PortfolioCard key={card.id} card={card} />
-                ))}
-              </div>
-            </section>
+            <PortfolioCardsProvider>
+              <PortfolioGallery />
+            </PortfolioCardsProvider>
           </ScreenLayout>
         </ActiveLinkProvider>
       </MainSectionLayout>
