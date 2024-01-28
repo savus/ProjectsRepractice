@@ -1,4 +1,4 @@
-import { TFilterLinkState } from "../../PortfolioGallery";
+import { TFilterLinkState } from "../../../types";
 
 export const FilterLink = ({
   dataFilter,
