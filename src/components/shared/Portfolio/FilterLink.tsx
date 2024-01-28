@@ -1,21 +1,23 @@
+import { TFilterLinkState } from "../../PortfolioGallery";
+
 export const FilterLink = ({
   dataFilter,
   linkText,
-  activeLinkState,
-  setActiveLinkState,
+  filterLinkState,
+  setFilterLinkState,
 }: {
-  dataFilter: string;
+  dataFilter: TFilterLinkState;
   linkText: string;
-  activeLinkState: string;
-  setActiveLinkState: (input: string) => void;
+  filterLinkState: TFilterLinkState;
+  setFilterLinkState: (input: TFilterLinkState) => void;
 }) => {
-  const isLinkActive = () => (activeLinkState === dataFilter ? "active" : "");
+  const isLinkActive = () => (filterLinkState === dataFilter ? "active" : "");
   return (
     <li
       className={`filter-link ${isLinkActive()}`}
       data-filter={dataFilter}
       onClick={() => {
-        setActiveLinkState(dataFilter);
+        setFilterLinkState(dataFilter);
       }}
     >
       {linkText}
