@@ -1,8 +1,17 @@
 import { InputProps } from "../../types";
 
-export const InputText = ({ inputProps }: { inputProps: InputProps }) => {
+export const InputText = ({
+  inputProps,
+  labelFor = "",
+  labelText = "",
+}: {
+  inputProps: InputProps;
+  labelFor: string;
+  labelText: string;
+}) => {
   return (
-    <label htmlFor="search">
+    <label htmlFor={labelFor}>
+      {labelText}
       <input {...inputProps} />
     </label>
   );

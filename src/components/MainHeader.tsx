@@ -12,7 +12,7 @@ export const MainHeader = () => {
           <ul className="navbar-nav ul-defaults-none flex-and-align">
             <LinkItem dataLink="to-do-list" />
             <LinkItem dataLink="portfolio-gallery" />
-            <LinkItem dataLink="item 3" />
+            <LinkItem dataLink="user-info-form" />
             <LinkItem dataLink="item 4" />
           </ul>
         </nav>

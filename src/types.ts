@@ -4,7 +4,7 @@ export type THeaderLinkState =
   | "none"
   | "to-do-list"
   | "portfolio-gallery"
-  | "item 3"
+  | "user-info-form"
   | "item 4";
 
 export type TFilterLinkState = "all" | "web" | "app" | "ui";

@@ -12,8 +12,15 @@ import { OptimisticRenderingProvider } from "./components/providers/OptimisticRe
 import { UseReactProvider } from "./components/providers/UseReactProvider";
 import { PortfolioGallery } from "./components/PortfolioGallery";
 import { PortfolioCardsProvider } from "./components/providers/PortfolioCardsProvider";
+import { InputText } from "./components/shared/InputText";
+import { useState } from "react";
 
+type TUserInformation = {
+  userName: string;
+};
 function App() {
+  const [userInformation, setUserInformation] =
+    useState<TUserInformation | null>(null);
   return (
     <>
       <MainSectionLayout>
@@ -35,6 +42,26 @@ function App() {
             <PortfolioCardsProvider>
               <PortfolioGallery />
             </PortfolioCardsProvider>
+          </ScreenLayout>
+          <ScreenLayout id={"user-info-form"} dataAnimation="slideFadeInRight">
+            <div className="container-md">
+              <header className="header-primary flex-and-align">
+                <h3>User Info Form</h3>
+              </header>
+              <div className="user-info-display">
+                <div className="username">{userInformation?.userName}</div>
+              </div>
+              <form action="#" className="user-form flex-and-align">
+                <InputText
+                  labelFor={"username"}
+                  labelText={"Enter Your First Name"}
+                  inputProps={{
+                    placeholder: "type here...",
+                    className: "input-primary",
+                  }}
+                />
+              </form>
+            </div>
           </ScreenLayout>
         </HeaderLinkProvider>
       </MainSectionLayout>
