@@ -12,7 +12,7 @@ export const InputText = ({
   return (
     <label htmlFor={labelFor}>
       {labelText}
-      <input {...inputProps} />
+      <input id={labelFor} {...inputProps} />
     </label>
   );
 };

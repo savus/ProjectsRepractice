@@ -51,13 +51,54 @@ function App() {
               <div className="user-info-display">
                 <div className="username">{userInformation?.userName}</div>
               </div>
-              <form action="#" className="user-form flex-and-align">
+              <form
+                action="#"
+                className="user-form flex-and-align"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  console.log("submitted");
+                }}
+              >
                 <InputText
-                  labelFor={"username"}
+                  labelFor={"first-name"}
                   labelText={"Enter Your First Name"}
                   inputProps={{
                     placeholder: "type here...",
                     className: "input-primary",
+                  }}
+                />
+                <InputText
+                  labelFor={"last-name"}
+                  labelText={"Enter Your Last Name"}
+                  inputProps={{
+                    placeholder: "type here...",
+                    className: "input-primary",
+                  }}
+                />
+                <InputText
+                  labelFor={"email"}
+                  labelText={"Enter Your Email"}
+                  inputProps={{
+                    placeholder: "type here...",
+                    className: "input-primary",
+                  }}
+                />
+                <InputText
+                  labelFor={"city"}
+                  labelText={"Enter Your City"}
+                  inputProps={{
+                    placeholder: "type here...",
+                    className: "input-primary",
+                  }}
+                />
+
+                <InputText
+                  labelFor="submit"
+                  labelText=""
+                  inputProps={{
+                    type: "submit",
+                    value: "Submit",
+                    className: "btn btn-primary",
                   }}
                 />
               </form>
