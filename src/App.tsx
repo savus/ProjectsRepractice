@@ -59,38 +59,42 @@ function App() {
                   console.log("submitted");
                 }}
               >
-                <InputText
-                  labelFor={"first-name"}
-                  labelText={"Enter Your First Name"}
-                  inputProps={{
-                    placeholder: "type here...",
-                    className: "input-primary",
-                  }}
-                />
-                <InputText
-                  labelFor={"last-name"}
-                  labelText={"Enter Your Last Name"}
-                  inputProps={{
-                    placeholder: "type here...",
-                    className: "input-primary",
-                  }}
-                />
-                <InputText
-                  labelFor={"email"}
-                  labelText={"Enter Your Email"}
-                  inputProps={{
-                    placeholder: "type here...",
-                    className: "input-primary",
-                  }}
-                />
-                <InputText
-                  labelFor={"city"}
-                  labelText={"Enter Your City"}
-                  inputProps={{
-                    placeholder: "type here...",
-                    className: "input-primary",
-                  }}
-                />
+                <div className="form-left-side">
+                  <InputText
+                    labelFor={"first-name"}
+                    labelText={"Enter Your First Name"}
+                    inputProps={{
+                      placeholder: "type here...",
+                      className: "input-primary",
+                    }}
+                  />
+                  <InputText
+                    labelFor={"last-name"}
+                    labelText={"Enter Your Last Name"}
+                    inputProps={{
+                      placeholder: "type here...",
+                      className: "input-primary",
+                    }}
+                  />
+                </div>
+                <div className="form-right-side">
+                  <InputText
+                    labelFor={"email"}
+                    labelText={"Enter Your Email"}
+                    inputProps={{
+                      placeholder: "type here...",
+                      className: "input-primary",
+                    }}
+                  />
+                  <InputText
+                    labelFor={"city"}
+                    labelText={"Enter Your City"}
+                    inputProps={{
+                      placeholder: "type here...",
+                      className: "input-primary",
+                    }}
+                  />
+                </div>
 
                 <InputText
                   labelFor="submit"
