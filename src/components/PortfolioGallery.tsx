@@ -10,60 +10,83 @@ export const PortfolioGallery = () => {
   const [filterLinkState, setFilterLinkState] =
     useState<TFilterLinkState>("all");
   const [userSearchInput, setUserSearchInput] = useState("");
+  const [useSearch, setUseSearch] = useState(false);
 
   const filteredCards = allPortfolioCards.filter((card) => {
-    const userInput = userSearchInput.toLowerCase().trim();
-    if (userInput.includes("all") || filterLinkState === "all") return true;
-    else if (
-      userInput.includes(card.dataItem) ||
-      filterLinkState === card.dataItem
-    )
-      return true;
-    else return false;
+    if (useSearch) {
+      const userInput = userSearchInput.toLowerCase().trim();
+      if (
+        userInput.length === 0 ||
+        userInput.includes("all") ||
+        userInput.includes(card.dataItem)
+      )
+        return true;
+    } else {
+      if (filterLinkState === "all" || filterLinkState === card.dataItem)
+        return true;
+    }
+    return false;
   });
 
   return (
-    <section className="portfolio-section">
+    <section
+      className="portfolio-section"
+      onClick={() => {
+        setUserSearchInput("");
+      }}
+    >
       <div className="container search-container">
-        <label htmlFor="search">
-          <input
-            type="text"
-            id="search"
-            className="search-input"
-            placeholder="Search..."
-            value={userSearchInput}
-            onChange={(e) => {
-              setUserSearchInput(e.target.value);
-            }}
-          />
-          <i className="fas fa-search"></i>
-        </label>
-        <ul className="ul-defaults-none portfolio-filter-nav">
-          <FilterLink
-            dataFilter="all"
-            linkText="All Work"
-            filterLinkState={filterLinkState}
-            setFilterLinkState={setFilterLinkState}
-          />
-          <FilterLink
-            dataFilter="web"
-            linkText="Web Development"
-            filterLinkState={filterLinkState}
-            setFilterLinkState={setFilterLinkState}
-          />
-          <FilterLink
-            dataFilter="app"
-            linkText="App Development"
-            filterLinkState={filterLinkState}
-            setFilterLinkState={setFilterLinkState}
-          />
-          <FilterLink
-            dataFilter="ui"
-            linkText="Ui Design"
-            filterLinkState={filterLinkState}
-            setFilterLinkState={setFilterLinkState}
-          />
-        </ul>
+        <button
+          className="search-button btn btn-primary"
+          onClick={() => {
+            setUseSearch(!useSearch);
+          }}
+        >
+          Search
+        </button>
+        <hr />
+        {useSearch ? (
+          <label htmlFor="search">
+            <input
+              type="text"
+              id="search"
+              className="search-input"
+              placeholder="Search..."
+              value={userSearchInput}
+              onChange={(e) => {
+                setUserSearchInput(e.target.value);
+              }}
+            />
+            <i className="fas fa-search"></i>
+          </label>
+        ) : (
+          <ul className="ul-defaults-none portfolio-filter-nav">
+            <FilterLink
+              dataFilter="all"
+              linkText="All Work"
+              filterLinkState={filterLinkState}
+              setFilterLinkState={setFilterLinkState}
+            />
+            <FilterLink
+              dataFilter="web"
+              linkText="Web Development"
+              filterLinkState={filterLinkState}
+              setFilterLinkState={setFilterLinkState}
+            />
+            <FilterLink
+              dataFilter="app"
+              linkText="App Development"
+              filterLinkState={filterLinkState}
+              setFilterLinkState={setFilterLinkState}
+            />
+            <FilterLink
+              dataFilter="ui"
+              linkText="Ui Design"
+              filterLinkState={filterLinkState}
+              setFilterLinkState={setFilterLinkState}
+            />
+          </ul>
+        )}
       </div>
       <div className="portfolio-grid">
         {filteredCards.map((card) => (
