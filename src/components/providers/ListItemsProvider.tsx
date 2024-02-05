@@ -68,7 +68,6 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
 
     return Requests.postNewItemOptimistic(newItem).then((response) => {
       if (!response.ok) {
-        toast.error(serverErrorMessage);
         setAllListItems(allListItems);
       } else return;
     });
@@ -93,10 +92,9 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
       )
     );
 
-    return Requests.updateListItemOptimistic(id, { content: input }).then(
+    Requests.updateListItemOptimistic(id, { content: input }).then(
       (response) => {
         if (!response.ok) {
-          toast.error(serverErrorMessage);
           setAllListItems(allListItems);
         } else return;
       }
@@ -119,7 +117,6 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
     setAllListItems(allListItems.filter((item) => item.id !== id));
     return Requests.deleteListItemOptimistic(id).then((response) => {
       if (!response.ok) {
-        toast.error(serverErrorMessage);
         setAllListItems(allListItems);
       } else return;
     });

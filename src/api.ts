@@ -6,7 +6,7 @@ export const Requests = {
   getAllEndpoints: (endpoints: string) =>
     fetch(`${BASE_URL}/${endpoints}`).then((response) => response.json()),
 
-  postNewItem: (item: Omit<TListItem, "id">) =>
+  postNewItem: (item: Omit<TListItem, "id">): Promise<TListItem[]> =>
     fetch(`${BASE_URL}/ListItems`, {
       method: "POST",
       body: JSON.stringify(item),
@@ -20,7 +20,10 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }),
 
-  updateListItem: (id: number, body: Partial<TListItem>) =>
+  updateListItem: (
+    id: number,
+    body: Partial<TListItem>
+  ): Promise<TListItem[]> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "PATCH",
       body: JSON.stringify(body),
@@ -34,7 +37,7 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }),
 
-  deleteListItem: (id: number) =>
+  deleteListItem: (id: number): Promise<TListItem> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "DELETE",
     }).then((response) => response.json()),
