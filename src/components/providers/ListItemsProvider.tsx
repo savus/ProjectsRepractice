@@ -48,9 +48,9 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
   const postNewItem = (item: Omit<TListItem, "id">) => {
     setIsLoading(true);
     return Requests.postNewItem(item)
-      .then(fetchData)
-      .catch(() => {
-        toast.error(serverErrorMessage);
+      .then(() => {
+        toast.success("Item created successfully");
+        return fetchData();
       })
       .finally(() => {
         setIsLoading(false);
