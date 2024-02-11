@@ -13,11 +13,11 @@ type TListItemsProvider = {
   allListItems: TListItem[];
   isLoading: boolean;
   setIsLoading: (input: boolean) => void;
-  postNewItem: (item: Omit<TListItem, "id">) => void;
+  postNewItem: (item: Omit<TListItem, "id">) => Promise<void>;
   postNewItemOpt: (item: Omit<TListItem, "id">) => void;
-  updateListItem: (id: number, input: string) => void;
+  updateListItem: (id: number, input: string) => Promise<void>;
   updateListItemOpt: (id: number, input: string) => void;
-  deleteListItem: (id: number) => void;
+  deleteListItem: (id: number) => Promise<void>;
   deleteListItemOpt: (id: number) => void;
 };
 

@@ -13,7 +13,7 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json()),
 
-  postNewItemOptimistic: (item: TListItem) =>
+  postNewItemOptimistic: (item: TListItem): Promise<Response> =>
     fetch(`${BASE_URL}/ListItems`, {
       method: "POST",
       body: JSON.stringify(item),
@@ -30,19 +30,22 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json()),
 
-  updateListItemOptimistic: (id: number, body: Partial<TListItem>) =>
+  updateListItemOptimistic: (
+    id: number,
+    body: Partial<TListItem>
+  ): Promise<Response> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "PATCH",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" },
     }),
 
-  deleteListItem: (id: number): Promise<TListItem> =>
+  deleteListItem: (id: number): Promise<TListItem[]> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "DELETE",
     }).then((response) => response.json()),
 
-  deleteListItemOptimistic: (id: number) =>
+  deleteListItemOptimistic: (id: number): Promise<Response> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "DELETE",
     }),
