@@ -102,7 +102,7 @@ img {
 /* Inputs */
 
 .input-primary {
-  padding: 0.2rem 0.5rem;
+  padding: 0.5rem 0.8rem;
   border: 1px solid var(--border-color-soft);
   border-radius: 15px;
   overflow-x: hidden;

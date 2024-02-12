@@ -5,6 +5,7 @@ import { ToDoList } from "./components/ToDoList";
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
+import "./css/user-info-form.css";
 
 import { HeaderLinkProvider } from "./components/providers/HeaderLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
@@ -53,58 +54,62 @@ function App() {
               </div>
               <form
                 action="#"
-                className="user-form flex-and-align"
+                className="user-form "
                 onSubmit={(e) => {
                   e.preventDefault();
                   console.log("submitted");
                 }}
               >
-                <div className="form-left-side">
-                  <InputText
-                    labelFor={"first-name"}
-                    labelText={"Enter Your First Name"}
-                    inputProps={{
-                      placeholder: "type here...",
-                      className: "input-primary",
-                    }}
-                  />
-                  <InputText
-                    labelFor={"last-name"}
-                    labelText={"Enter Your Last Name"}
-                    inputProps={{
-                      placeholder: "type here...",
-                      className: "input-primary",
-                    }}
-                  />
-                </div>
-                <div className="form-right-side">
-                  <InputText
-                    labelFor={"email"}
-                    labelText={"Enter Your Email"}
-                    inputProps={{
-                      placeholder: "type here...",
-                      className: "input-primary",
-                    }}
-                  />
-                  <InputText
-                    labelFor={"city"}
-                    labelText={"Enter Your City"}
-                    inputProps={{
-                      placeholder: "type here...",
-                      className: "input-primary",
-                    }}
-                  />
+                <div className="container input-field-container flex-and-align">
+                  <div className="form-left-side">
+                    <InputText
+                      labelFor={"first-name"}
+                      labelText={"Enter Your First Name"}
+                      inputProps={{
+                        placeholder: "type here...",
+                        className: "input-primary",
+                      }}
+                    />
+                    <InputText
+                      labelFor={"last-name"}
+                      labelText={"Enter Your Last Name"}
+                      inputProps={{
+                        placeholder: "type here...",
+                        className: "input-primary",
+                      }}
+                    />
+                  </div>
+                  <div className="form-right-side">
+                    <InputText
+                      labelFor={"email"}
+                      labelText={"Enter Your Email"}
+                      inputProps={{
+                        placeholder: "type here...",
+                        className: "input-primary",
+                      }}
+                    />
+                    <InputText
+                      labelFor={"city"}
+                      labelText={"Enter Your City"}
+                      inputProps={{
+                        placeholder: "type here...",
+                        className: "input-primary",
+                      }}
+                    />
+                  </div>
                 </div>
 
-                <InputText
-                  labelFor="submit"
-                  labelText=""
-                  inputProps={{
-                    type: "submit",
-                    value: "Submit",
-                    className: "btn btn-primary",
-                  }}
-                />
+                <div className="submit-button-container">
+                  <InputText
+                    labelFor="submit"
+                    labelText=""
+                    inputProps={{
+                      type: "submit",
+                      value: "Submit",
+                      className: "btn btn-primary",
+                    }}
+                  />
+                </div>
               </form>
             </div>
           </ScreenLayout>

@@ -12,7 +12,7 @@ const HeaderLinkContext = createContext<THeaderLinkProvider>(
 
 export const HeaderLinkProvider = ({ children }: { children: ReactNode }) => {
   const [headerLinkState, setHeaderLinkState] =
-    useState<THeaderLinkState>("none");
+    useState<THeaderLinkState>("user-info-form");
   return (
     <HeaderLinkContext.Provider value={{ headerLinkState, setHeaderLinkState }}>
       {children}
