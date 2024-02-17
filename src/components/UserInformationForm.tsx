@@ -57,6 +57,7 @@ export const UserInformationForm = ({
                 inputProps={{
                   placeholder: "type here...",
                   className: "input-primary",
+                  list: "cities",
                 }}
               />
             </div>

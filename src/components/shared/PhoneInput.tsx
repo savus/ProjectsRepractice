@@ -3,12 +3,18 @@ import { TextInput } from "./TextInput";
 import { TPhoneInputState } from "../../types";
 
 export const PhoneInput = () => {
-  const [phoneInput, setPhoneInput] = useState<TPhoneInputState>(["", "", ""]);
+  const [phoneInputState, setPhoneInputState] = useState<TPhoneInputState>([
+    "",
+    "",
+    "",
+  ]);
+
   const refs = [
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
   ];
+
   const maxLengths = [3, 3, 4];
 
   const onChangeEventHandler =
@@ -21,8 +27,8 @@ export const PhoneInput = () => {
       const shouldGoToNextRef = value.length === currentMaxLength;
       const shouldGoToPrevRef = value.length === 0;
 
-      const newInputState = phoneInput.map((phoneInput, phoneIndex) =>
-        index === phoneIndex ? value : phoneInput
+      const newInputState = phoneInputState.map((phoneInput, phoneIndex) =>
+        phoneIndex === index ? value : phoneInput
       ) as TPhoneInputState;
 
       if (shouldGoToNextRef) {
@@ -33,7 +39,7 @@ export const PhoneInput = () => {
         prevRef.current?.focus();
       }
 
-      setPhoneInput(newInputState);
+      setPhoneInputState(newInputState);
     };
 
   return (
@@ -44,10 +50,10 @@ export const PhoneInput = () => {
         labelText=""
         inputProps={{
           type: "text",
-          value: phoneInput[0],
-          onChange: onChangeEventHandler(0),
-          ref: refs[0],
           maxLength: maxLengths[0],
+          ref: refs[0],
+          value: phoneInputState[0],
+          onChange: onChangeEventHandler(0),
         }}
       />{" "}
       -
@@ -56,10 +62,10 @@ export const PhoneInput = () => {
         labelText=""
         inputProps={{
           type: "text",
-          value: phoneInput[1],
-          onChange: onChangeEventHandler(1),
-          ref: refs[1],
           maxLength: maxLengths[1],
+          ref: refs[1],
+          value: phoneInputState[1],
+          onChange: onChangeEventHandler(1),
         }}
       />{" "}
       -
@@ -68,10 +74,10 @@ export const PhoneInput = () => {
         labelText=""
         inputProps={{
           type: "text",
-          value: phoneInput[2],
-          onChange: onChangeEventHandler(2),
-          ref: refs[2],
           maxLength: maxLengths[2],
+          ref: refs[2],
+          value: phoneInputState[2],
+          onChange: onChangeEventHandler(2),
         }}
       />
     </>
