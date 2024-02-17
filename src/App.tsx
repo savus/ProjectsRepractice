@@ -15,6 +15,7 @@ import { PortfolioGallery } from "./components/PortfolioGallery";
 import { PortfolioCardsProvider } from "./components/providers/PortfolioCardsProvider";
 import { useState } from "react";
 import { UserInformationForm } from "./components/UserInformationForm";
+import { allCities } from "./utils/all-cities";
 
 export type TUserInformation = {
   userName: string;
@@ -49,6 +50,12 @@ function App() {
           </ScreenLayout>
         </HeaderLinkProvider>
       </MainSectionLayout>
+
+      <datalist id="cities">
+        {allCities.map((city) => (
+          <option key={city}>{city}</option>
+        ))}
+      </datalist>
     </>
   );
 }

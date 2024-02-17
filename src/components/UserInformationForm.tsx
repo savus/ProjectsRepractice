@@ -1,6 +1,7 @@
 import { TUserInformation } from "../App";
 import { ProfileInformation } from "./ProfileInformation";
-import { InputText } from "./shared/InputText";
+import { PhoneInput } from "./shared/PhoneInput";
+import { TextInput } from "./shared/TextInput";
 
 export const UserInformationForm = ({
   userData,
@@ -24,7 +25,7 @@ export const UserInformationForm = ({
         >
           <div className="container input-field-container flex-and-align">
             <div className="form-left-side">
-              <InputText
+              <TextInput
                 labelFor={"first-name"}
                 labelText={"Enter Your First Name"}
                 inputProps={{
@@ -32,7 +33,7 @@ export const UserInformationForm = ({
                   className: "input-primary",
                 }}
               />
-              <InputText
+              <TextInput
                 labelFor={"last-name"}
                 labelText={"Enter Your Last Name"}
                 inputProps={{
@@ -42,7 +43,7 @@ export const UserInformationForm = ({
               />
             </div>
             <div className="form-right-side">
-              <InputText
+              <TextInput
                 labelFor={"email"}
                 labelText={"Enter Your Email"}
                 inputProps={{
@@ -50,7 +51,7 @@ export const UserInformationForm = ({
                   className: "input-primary",
                 }}
               />
-              <InputText
+              <TextInput
                 labelFor={"city"}
                 labelText={"Enter Your City"}
                 inputProps={{
@@ -60,9 +61,9 @@ export const UserInformationForm = ({
               />
             </div>
           </div>
-
+          <PhoneInput />
           <div className="submit-button-container">
-            <InputText
+            <TextInput
               labelFor="submit"
               labelText=""
               inputProps={{

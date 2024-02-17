@@ -1,6 +1,6 @@
 import { InputProps } from "../../types";
 
-export const InputText = ({
+export const TextInput = ({
   inputProps,
   labelFor = "",
   labelText = "",

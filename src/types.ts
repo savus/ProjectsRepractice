@@ -23,3 +23,5 @@ export type TPortfolioCard = {
   popupTitle: string;
   popupDescription: string;
 };
+
+export type TPhoneInputState = [string, string, string];
