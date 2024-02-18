@@ -1,6 +1,10 @@
-import "../css/main-header.css";
-import { LinkItem } from "./shared/Header/LinkItem";
-import { NavbarToggler } from "./shared/Header/NavbarToggler";
+import "./css/main-header.css";
+import "./css/base.css";
+import "./css/theme.css";
+import "./css/responsive.css";
+
+import { LinkItem } from "../shared/Header/LinkItem";
+import { NavbarToggler } from "../shared/Header/NavbarToggler";
 
 export const MainHeader = () => {
   return (
