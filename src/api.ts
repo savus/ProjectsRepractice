@@ -1,9 +1,9 @@
-import { TListItem, TPortfolioCard } from "./types";
+import { TListItem } from "./types";
 
 const BASE_URL = "http://localhost:3000";
 
 export const Requests = {
-  getAllEndpoints: (endpoints: string) =>
+  fetchData: (endpoints: string) =>
     fetch(`${BASE_URL}/${endpoints}`).then((response) => response.json()),
 
   postNewItem: (item: Omit<TListItem, "id">): Promise<TListItem[]> =>
@@ -13,11 +13,17 @@ export const Requests = {
       headers: { "Content-Type": "application/json" },
     }).then((response) => response.json()),
 
-  postNewItemOptimistic: (item: TListItem): Promise<Response> =>
+  postNewItemOptimistic: (item: TListItem): Promise<unknown> =>
     fetch(`${BASE_URL}/ListItems`, {
       method: "POST",
       body: JSON.stringify(item),
       headers: { "Content-Type": "application/json" },
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Could not post item`);
+      } else {
+        return response.json();
+      }
     }),
 
   updateListItem: (
@@ -33,11 +39,17 @@ export const Requests = {
   updateListItemOptimistic: (
     id: number,
     body: Partial<TListItem>
-  ): Promise<Response> =>
+  ): Promise<unknown> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "PATCH",
       body: JSON.stringify(body),
       headers: { "Content-Type": "application/json" },
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Could not update Item ${id}`);
+      } else {
+        return response.json();
+      }
     }),
 
   deleteListItem: (id: number): Promise<TListItem[]> =>
@@ -45,11 +57,14 @@ export const Requests = {
       method: "DELETE",
     }).then((response) => response.json()),
 
-  deleteListItemOptimistic: (id: number): Promise<Response> =>
+  deleteListItemOptimistic: (id: number): Promise<unknown> =>
     fetch(`${BASE_URL}/ListItems/${id}`, {
       method: "DELETE",
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error(`Could not delete Item ${id}`);
+      } else {
+        return response.json();
+      }
     }),
-
-  getAllPortfolioCards: (): Promise<TPortfolioCard[]> =>
-    fetch(`${BASE_URL}/PortfolioCards`).then((response) => response.json()),
 };

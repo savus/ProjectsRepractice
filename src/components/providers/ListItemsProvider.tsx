@@ -14,11 +14,11 @@ type TListItemsProvider = {
   isLoading: boolean;
   setIsLoading: (input: boolean) => void;
   postNewItem: (item: Omit<TListItem, "id">) => Promise<void>;
-  postNewItemOpt: (item: Omit<TListItem, "id">) => void;
+  postNewItemOpt: (item: Omit<TListItem, "id">) => Promise<unknown>;
   updateListItem: (id: number, input: string) => Promise<void>;
-  updateListItemOpt: (id: number, input: string) => void;
+  updateListItemOpt: (id: number, input: string) => Promise<unknown>;
   deleteListItem: (id: number) => Promise<void>;
-  deleteListItemOpt: (id: number) => void;
+  deleteListItemOpt: (id: number) => Promise<unknown>;
 };
 
 const serverErrorMessage = "Oops... something went wrong";
@@ -35,7 +35,7 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
 
   const fetchData = () => {
     setIsLoading(true);
-    return Requests.getAllEndpoints(endPoints)
+    return Requests.fetchData(endPoints)
       .then(setAllListItems)
       .catch(() => {
         toast.error(serverErrorMessage);
@@ -48,9 +48,9 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
   const postNewItem = (item: Omit<TListItem, "id">) => {
     setIsLoading(true);
     return Requests.postNewItem(item)
+      .then(fetchData)
       .then(() => {
         toast.success("Item created successfully");
-        return fetchData();
       })
       .finally(() => {
         setIsLoading(false);
@@ -66,10 +66,9 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
     const newItem = { ...item, id: nextItemId };
     setAllListItems([...allListItems, newItem]);
 
-    return Requests.postNewItemOptimistic(newItem).then((response) => {
-      if (!response.ok) {
-        setAllListItems(allListItems);
-      } else return;
+    return Requests.postNewItemOptimistic(newItem).catch(() => {
+      toast.error(serverErrorMessage);
+      setAllListItems(allListItems);
     });
   };
 
@@ -92,11 +91,10 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
       )
     );
 
-    Requests.updateListItemOptimistic(id, { content: input }).then(
-      (response) => {
-        if (!response.ok) {
-          setAllListItems(allListItems);
-        } else return;
+    return Requests.updateListItemOptimistic(id, { content: input }).catch(
+      () => {
+        toast.error(serverErrorMessage);
+        setAllListItems(allListItems);
       }
     );
   };
@@ -115,10 +113,9 @@ export const ListItemsProvider = ({ children }: { children: ReactNode }) => {
 
   const deleteListItemOpt = (id: number) => {
     setAllListItems(allListItems.filter((item) => item.id !== id));
-    return Requests.deleteListItemOptimistic(id).then((response) => {
-      if (!response.ok) {
-        setAllListItems(allListItems);
-      } else return;
+    return Requests.deleteListItemOptimistic(id).catch(() => {
+      toast.error(serverErrorMessage);
+      setAllListItems(allListItems);
     });
   };
 

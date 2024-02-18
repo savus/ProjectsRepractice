@@ -31,7 +31,7 @@ export const PortfolioCardsProvider = ({
 
   const refetchData = () => {
     setIsLoading(true);
-    Requests.getAllEndpoints(endPoints)
+    Requests.fetchData(endPoints)
       .then(setAllPortfolioCards)
       .finally(() => {
         setIsLoading(false);
