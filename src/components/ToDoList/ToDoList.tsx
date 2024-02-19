@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/to-do-list.css";
+import "./css/to-do-list.css";
 import { ListItemComponent } from "../ListItemComponent";
 import { isListItemValid } from "../../utils/validations";
 import { ErrorMessage } from "../shared/ErrorMessage";

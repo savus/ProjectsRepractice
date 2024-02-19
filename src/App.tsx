@@ -24,11 +24,7 @@ function App() {
       <MainSectionLayout>
         <HeaderLinkProvider>
           <MainHeader />
-        </HeaderLinkProvider>
-      </MainSectionLayout>
 
-      <MainSectionLayout>
-        <HeaderLinkProvider>
           <ScreenLayout id={"to-do-list"} dataAnimation="slideFadeInRight">
             <OptimisticRenderingProvider>
               <ListItemsProvider>
@@ -36,11 +32,7 @@ function App() {
               </ListItemsProvider>
             </OptimisticRenderingProvider>
           </ScreenLayout>
-        </HeaderLinkProvider>
-      </MainSectionLayout>
 
-      <MainSectionLayout>
-        <HeaderLinkProvider>
           <ScreenLayout
             id={"portfolio-gallery"}
             dataAnimation={"slideFadeInRight"}
@@ -49,11 +41,7 @@ function App() {
               <PortfolioGallery />
             </PortfolioCardsProvider>
           </ScreenLayout>
-        </HeaderLinkProvider>
-      </MainSectionLayout>
 
-      <MainSectionLayout>
-        <HeaderLinkProvider>
           <ScreenLayout id={"user-info-form"} dataAnimation="slideFadeInRight">
             <UserInformationForm userData={userInformation} />
           </ScreenLayout>
