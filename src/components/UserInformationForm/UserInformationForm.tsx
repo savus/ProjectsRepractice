@@ -7,6 +7,7 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
 import "./css/user-info-form.css";
+import { Validations } from "../../utils/validations";
 
 const firstNameErrorMessage = "First Name Is Invalid";
 const lastNameErrorMessage = "Last Name Is Invalid";
@@ -18,6 +19,15 @@ export const UserInformationForm = () => {
   const [lastNameInput, setLastNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [cityInput, setCityInput] = useState("");
+
+  const [submitAttempted, setSubmitAttempted] = useState(false);
+
+  const firstNameIsValid = Validations.isNameValid(firstNameInput);
+  const lastNameIsValid = Validations.isNameValid(lastNameInput);
+
+  const showFirstNameError = !firstNameIsValid && submitAttempted;
+  const showLastNameError = !lastNameIsValid && submitAttempted;
+
   return (
     <>
       <div className="container-md">
@@ -30,7 +40,7 @@ export const UserInformationForm = () => {
           className="user-form "
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("submitted");
+            setSubmitAttempted(true);
           }}
         >
           <div className="container input-field-container flex-and-align">
@@ -45,7 +55,10 @@ export const UserInformationForm = () => {
                   onChange: (e) => setFirstNameInput(e.target.value),
                 }}
               />
-              <ErrorMessage message={firstNameErrorMessage} show={true} />
+              <ErrorMessage
+                message={firstNameErrorMessage}
+                show={showFirstNameError}
+              />
               <TextInput
                 labelFor={"last-name"}
                 labelText={"Enter Your Last Name"}
@@ -56,7 +69,10 @@ export const UserInformationForm = () => {
                   onChange: (e) => setLastNameInput(e.target.value),
                 }}
               />
-              <ErrorMessage message={lastNameErrorMessage} show={true} />
+              <ErrorMessage
+                message={lastNameErrorMessage}
+                show={showLastNameError}
+              />
             </div>
             <div className="form-right-side">
               <TextInput
