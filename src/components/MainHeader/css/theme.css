@@ -1,0 +1,21 @@
+/* needs to be tested and adjusted */
+:root {
+  --bg-bright: #fff;
+  --bg-dark: #000;
+  --link-highlight: #659fff;
+  --font-color-base: #2a2b2b;
+  --font-base-bold: #5f6267;
+  --button-base: #fff;
+  --button-alternative: #ccc;
+  --font-color-dark: #030303;
+  --font-color-bright: #f6f7f9;
+  --font-color-soft: #5b5b5b;
+  --border-color-soft: #666;
+  --background-color-soft: rgb(240, 240, 240);
+  --background-color-faded: rgba(248, 244, 246, 0.3);
+  --background-color-form: rgba(0, 0, 0, 0.8);
+  --icon-background-soft: rgb(236, 242, 255);
+  --icon-background-dark: #677787;
+  --message-danger: red;
+  --box-shadow-base: 0 5px 8px 0px rgba(0, 0, 0, 0.2);
+}

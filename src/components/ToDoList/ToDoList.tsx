@@ -1,10 +1,9 @@
 import { useState } from "react";
 import "../css/to-do-list.css";
-import { ListItemComponent } from "./ListItemComponent";
-import { isListItemValid } from "../utils/validations";
-import { ErrorMessage } from "./shared/ErrorMessage";
-import { useListItems } from "./providers/ListItemsProvider";
-import { useReactContext } from "./providers/UseReactProvider";
+import { ListItemComponent } from "../ListItemComponent";
+import { isListItemValid } from "../../utils/validations";
+import { ErrorMessage } from "../shared/ErrorMessage";
+import { useListItems } from "../providers/ListItemsProvider";
 
 export const ToDoList = () => {
   const { allListItems, postNewItemOpt, isLoading } = useListItems();
@@ -12,6 +11,7 @@ export const ToDoList = () => {
   const [itemFormActiveState, setItemFormActiveState] = useState<"active" | "">(
     ""
   );
+
   const [toolTipText, setToolTipText] = useState<"Add new item" | "Close">(
     "Add new item"
   );
@@ -32,8 +32,6 @@ export const ToDoList = () => {
     setSubmitAttempted(false);
   };
 
-  const { useReact } = useReactContext();
-
   return (
     <>
       <div className="container-md">
@@ -43,14 +41,12 @@ export const ToDoList = () => {
             className="add-item-button btn btn-secondary"
             data-tooltip={`${toolTipText}`}
             onClick={() => {
-              if (useReact) {
-                if (itemFormActiveState === "active") {
-                  setItemFormActiveState("");
-                  setToolTipText("Add new item");
-                } else {
-                  setItemFormActiveState("active");
-                  setToolTipText("Close");
-                }
+              if (itemFormActiveState === "active") {
+                setItemFormActiveState("");
+                setToolTipText("Add new item");
+              } else {
+                setItemFormActiveState("active");
+                setToolTipText("Close");
               }
             }}
           >
