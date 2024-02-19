@@ -1,5 +1,5 @@
 import { ReactNode, createContext, useContext, useState } from "react";
-import { TUserInformation } from "../../App";
+import { TUserInformation } from "../../types";
 
 type TUserInformationProvider = {
   userInformation: TUserInformation | null;

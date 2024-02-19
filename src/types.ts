@@ -25,3 +25,10 @@ export type TPortfolioCard = {
 };
 
 export type TPhoneInputState = [string, string, string];
+
+export type TUserInformation = {
+  firstName: string;
+  lastName: string;
+  city: string;
+  email: string;
+};

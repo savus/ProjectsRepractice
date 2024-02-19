@@ -4,9 +4,9 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
 import { ListItemComponent } from "./ListItemComponent";
-import { isListItemValid } from "../../utils/validations";
 import { ErrorMessage } from "../shared/ErrorMessage";
 import { useListItems } from "../providers/ListItemsProvider";
+import { Validations } from "../../utils/validations";
 
 export const ToDoList = () => {
   const { allListItems, postNewItemOpt, isLoading } = useListItems();
@@ -25,7 +25,7 @@ export const ToDoList = () => {
 
   const formInputErrorMessage = "Item must have more than 0 characters";
 
-  const formInputIsValid = isListItemValid(newItemInput);
+  const formInputIsValid = Validations.isListItemValid(newItemInput);
 
   const showFormErrorMessage = submitAttempted && !formInputIsValid;
 

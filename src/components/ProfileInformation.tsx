@@ -12,7 +12,10 @@ export const ProfileInformation = () => {
   return (
     <>
       <div className="user-info-display">
-        UserName: {userInformation?.userName}
+        <div>First Name: {userInformation?.firstName}</div>
+        <div>Last Name: {userInformation?.lastName}</div>
+        <div>City: {userInformation?.city}</div>
+        <div>Email: {userInformation?.email}</div>
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import "./css/theme.css";
 import "./css/responsive.css";
 import "./css/user-info-form.css";
 import { Validations } from "../../utils/validations";
+import { useUserInformation } from "../providers/UserInformationProvider";
 
 const firstNameErrorMessage = "First Name Is Invalid";
 const lastNameErrorMessage = "Last Name Is Invalid";
@@ -24,9 +25,18 @@ export const UserInformationForm = () => {
 
   const firstNameIsValid = Validations.isNameValid(firstNameInput);
   const lastNameIsValid = Validations.isNameValid(lastNameInput);
+  const emailIsValid = Validations.isEmailValid(emailInput);
+  const cityIsValid = Validations.cityIsValid(cityInput);
 
   const showFirstNameError = !firstNameIsValid && submitAttempted;
   const showLastNameError = !lastNameIsValid && submitAttempted;
+  const showEmailError = !emailIsValid && submitAttempted;
+  const showCityError = !cityIsValid && submitAttempted;
+
+  const doBadInputsExist =
+    !firstNameIsValid || !lastNameIsValid || !emailIsValid || !cityIsValid;
+
+  const { setUserInformation } = useUserInformation();
 
   return (
     <>
@@ -41,6 +51,14 @@ export const UserInformationForm = () => {
           onSubmit={(e) => {
             e.preventDefault();
             setSubmitAttempted(true);
+            if (!doBadInputsExist) {
+              setUserInformation({
+                firstName: firstNameInput,
+                lastName: lastNameInput,
+                city: cityInput,
+                email: emailInput,
+              });
+            }
           }}
         >
           <div className="container input-field-container flex-and-align">
@@ -55,10 +73,12 @@ export const UserInformationForm = () => {
                   onChange: (e) => setFirstNameInput(e.target.value),
                 }}
               />
+
               <ErrorMessage
                 message={firstNameErrorMessage}
                 show={showFirstNameError}
               />
+
               <TextInput
                 labelFor={"last-name"}
                 labelText={"Enter Your Last Name"}
@@ -85,7 +105,8 @@ export const UserInformationForm = () => {
                   onChange: (e) => setEmailInput(e.target.value),
                 }}
               />
-              <ErrorMessage message={emailErrorMessage} show={true} />
+
+              <ErrorMessage message={emailErrorMessage} show={showEmailError} />
 
               <TextInput
                 labelFor={"city"}
@@ -98,10 +119,13 @@ export const UserInformationForm = () => {
                   onChange: (e) => setCityInput(e.target.value),
                 }}
               />
-              <ErrorMessage message={cityErrorMessage} show={true} />
+
+              <ErrorMessage message={cityErrorMessage} show={showCityError} />
             </div>
           </div>
+
           <PhoneInput />
+
           <div className="submit-button-container">
             <TextInput
               labelFor="submit"
