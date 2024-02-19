@@ -9,6 +9,7 @@ import "./css/responsive.css";
 import "./css/user-info-form.css";
 import { Validations } from "../../utils/validations";
 import { useUserInformation } from "../providers/UserInformationProvider";
+import { TPhoneInputState } from "../../types";
 
 const firstNameErrorMessage = "First Name Is Invalid";
 const lastNameErrorMessage = "Last Name Is Invalid";
@@ -20,6 +21,11 @@ export const UserInformationForm = () => {
   const [lastNameInput, setLastNameInput] = useState("");
   const [emailInput, setEmailInput] = useState("");
   const [cityInput, setCityInput] = useState("");
+  const [phoneInputState, setPhoneInputState] = useState<TPhoneInputState>([
+    "",
+    "",
+    "",
+  ]);
 
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
@@ -124,7 +130,10 @@ export const UserInformationForm = () => {
             </div>
           </div>
 
-          <PhoneInput />
+          <PhoneInput
+            phoneInputState={phoneInputState}
+            setPhoneInputState={setPhoneInputState}
+          />
 
           <div className="submit-button-container">
             <TextInput

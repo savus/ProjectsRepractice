@@ -1,14 +1,14 @@
-import { ChangeEventHandler, useRef, useState } from "react";
+import { ChangeEventHandler, Dispatch, SetStateAction, useRef } from "react";
 import { TextInput } from "./TextInput";
 import { TPhoneInputState } from "../../types";
 
-export const PhoneInput = () => {
-  const [phoneInputState, setPhoneInputState] = useState<TPhoneInputState>([
-    "",
-    "",
-    "",
-  ]);
-
+export const PhoneInput = ({
+  phoneInputState,
+  setPhoneInputState,
+}: {
+  phoneInputState: TPhoneInputState;
+  setPhoneInputState: Dispatch<SetStateAction<TPhoneInputState>>;
+}) => {
   const refs = [
     useRef<HTMLInputElement>(null),
     useRef<HTMLInputElement>(null),
@@ -44,42 +44,44 @@ export const PhoneInput = () => {
 
   return (
     <>
-      <div>Phone Number</div>
-      <TextInput
-        labelFor=""
-        labelText=""
-        inputProps={{
-          type: "text",
-          maxLength: maxLengths[0],
-          ref: refs[0],
-          value: phoneInputState[0],
-          onChange: onChangeEventHandler(0),
-        }}
-      />{" "}
-      -
-      <TextInput
-        labelFor=""
-        labelText=""
-        inputProps={{
-          type: "text",
-          maxLength: maxLengths[1],
-          ref: refs[1],
-          value: phoneInputState[1],
-          onChange: onChangeEventHandler(1),
-        }}
-      />{" "}
-      -
-      <TextInput
-        labelFor=""
-        labelText=""
-        inputProps={{
-          type: "text",
-          maxLength: maxLengths[2],
-          ref: refs[2],
-          value: phoneInputState[2],
-          onChange: onChangeEventHandler(2),
-        }}
-      />
+      <div className="phone-input-container">
+        <div>Phone Number</div>
+        <TextInput
+          labelFor=""
+          labelText=""
+          inputProps={{
+            type: "text",
+            maxLength: maxLengths[0],
+            ref: refs[0],
+            value: phoneInputState[0],
+            onChange: onChangeEventHandler(0),
+          }}
+        />{" "}
+        -
+        <TextInput
+          labelFor=""
+          labelText=""
+          inputProps={{
+            type: "text",
+            maxLength: maxLengths[1],
+            ref: refs[1],
+            value: phoneInputState[1],
+            onChange: onChangeEventHandler(1),
+          }}
+        />{" "}
+        -
+        <TextInput
+          labelFor=""
+          labelText=""
+          inputProps={{
+            type: "text",
+            maxLength: maxLengths[2],
+            ref: refs[2],
+            value: phoneInputState[2],
+            onChange: onChangeEventHandler(2),
+          }}
+        />
+      </div>
     </>
   );
 };

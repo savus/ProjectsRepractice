@@ -12,9 +12,6 @@ import { allCities } from "./utils/all-cities";
 import { MainHeader } from "./components/MainHeader/MainHeader";
 import { UserInformationProvider } from "./components/providers/UserInformationProvider";
 
-export type TUserInformation = {
-  userName: string;
-};
 function App() {
   return (
     <>
