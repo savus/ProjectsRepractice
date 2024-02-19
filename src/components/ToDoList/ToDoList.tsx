@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "./css/to-do-list.css";
-import { ListItemComponent } from "../ListItemComponent";
+import "./css/base.css";
+import "./css/theme.css";
+import "./css/responsive.css";
+import { ListItemComponent } from "./ListItemComponent";
 import { isListItemValid } from "../../utils/validations";
 import { ErrorMessage } from "../shared/ErrorMessage";
 import { useListItems } from "../providers/ListItemsProvider";
@@ -15,7 +18,9 @@ export const ToDoList = () => {
   const [toolTipText, setToolTipText] = useState<"Add new item" | "Close">(
     "Add new item"
   );
+
   const [newItemInput, setNewInput] = useState("");
+
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const formInputErrorMessage = "Item must have more than 0 characters";

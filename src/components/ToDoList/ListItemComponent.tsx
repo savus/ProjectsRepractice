@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { TListItem } from "../types";
-import { useListItems } from "./providers/ListItemsProvider";
-import { useOptRendering } from "./providers/OptimisticRenderingProvider";
+import { TListItem } from "../../types";
+import { useListItems } from "../providers/ListItemsProvider";
+import { useOptRendering } from "../providers/OptimisticRenderingProvider";
 
 export const ListItemComponent = ({
   item: { id, content },

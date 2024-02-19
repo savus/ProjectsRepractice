@@ -1,24 +1,21 @@
 import { MainSectionLayout } from "./components/layouts/MainSectionLayout";
 import { ScreenLayout } from "./components/layouts/ScreenLayout";
 import { ToDoList } from "./components/ToDoList/ToDoList";
-import "./css/user-info-form.css";
 
 import { HeaderLinkProvider } from "./components/providers/HeaderLinkProvider";
 import { ListItemsProvider } from "./components/providers/ListItemsProvider";
 import { OptimisticRenderingProvider } from "./components/providers/OptimisticRenderingProvider";
 import { PortfolioGallery } from "./components/PortfolioGallery";
 import { PortfolioCardsProvider } from "./components/providers/PortfolioCardsProvider";
-import { useState } from "react";
-import { UserInformationForm } from "./components/UserInformationForm";
+import { UserInformationForm } from "./components/UserInformationForm/UserInformationForm";
 import { allCities } from "./utils/all-cities";
 import { MainHeader } from "./components/MainHeader/MainHeader";
+import { UserInformationProvider } from "./components/providers/UserInformationProvider";
 
 export type TUserInformation = {
   userName: string;
 };
 function App() {
-  const [userInformation, setUserInformation] =
-    useState<TUserInformation | null>(null);
   return (
     <>
       <MainSectionLayout>
@@ -43,7 +40,9 @@ function App() {
           </ScreenLayout>
 
           <ScreenLayout id={"user-info-form"} dataAnimation="slideFadeInRight">
-            <UserInformationForm userData={userInformation} />
+            <UserInformationProvider>
+              <UserInformationForm />
+            </UserInformationProvider>
           </ScreenLayout>
         </HeaderLinkProvider>
       </MainSectionLayout>

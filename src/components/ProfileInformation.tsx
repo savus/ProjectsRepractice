@@ -1,21 +1,19 @@
-import { TUserInformation } from "../App";
+import { useUserInformation } from "./providers/UserInformationProvider";
 
-export const ProfileInformation = ({
-  userData,
-}: {
-  userData: TUserInformation | null;
-}) => {
-  if (!userData) {
+export const ProfileInformation = () => {
+  const { userInformation } = useUserInformation();
+  if (!userInformation) {
     return (
       <>
         <div className="user-info-display">No User Information Given</div>
       </>
     );
   }
-  const { userName } = userData;
   return (
     <>
-      <div className="user-info-display">UserName: {userName}</div>
+      <div className="user-info-display">
+        UserName: {userInformation?.userName}
+      </div>
     </>
   );
 };
