@@ -45,8 +45,13 @@
   #list-container .list-item {
     flex-direction: column;
   }
+
   .list-item .item-content,
   .list-item .item-input-container {
     margin: 0 0 15px 0;
+  }
+
+  #user-form-container .input-field-container {
+    flex-direction: column;
   }
 }

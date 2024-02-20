@@ -15,6 +15,7 @@ const firstNameErrorMessage = "First Name Is Invalid";
 const lastNameErrorMessage = "Last Name Is Invalid";
 const emailErrorMessage = "Email Is Invalid";
 const cityErrorMessage = "City Is Invalid";
+const phoneErrorMessage = "Phone Is Invalid";
 
 export const UserInformationForm = () => {
   const [firstNameInput, setFirstNameInput] = useState("");
@@ -29,24 +30,30 @@ export const UserInformationForm = () => {
 
   const [submitAttempted, setSubmitAttempted] = useState(false);
 
-  const firstNameIsValid = Validations.isNameValid(firstNameInput);
-  const lastNameIsValid = Validations.isNameValid(lastNameInput);
-  const emailIsValid = Validations.isEmailValid(emailInput);
+  const firstNameIsValid = Validations.nameIsValid(firstNameInput);
+  const lastNameIsValid = Validations.nameIsValid(lastNameInput);
+  const emailIsValid = Validations.emailIsValid(emailInput);
   const cityIsValid = Validations.cityIsValid(cityInput);
+  const phoneIsValid = Validations.phoneNumIsValid(phoneInputState);
 
   const showFirstNameError = !firstNameIsValid && submitAttempted;
   const showLastNameError = !lastNameIsValid && submitAttempted;
   const showEmailError = !emailIsValid && submitAttempted;
   const showCityError = !cityIsValid && submitAttempted;
+  const showPhoneError = !phoneIsValid && submitAttempted;
 
   const doBadInputsExist =
-    !firstNameIsValid || !lastNameIsValid || !emailIsValid || !cityIsValid;
+    !firstNameIsValid ||
+    !lastNameIsValid ||
+    !emailIsValid ||
+    !cityIsValid ||
+    phoneIsValid;
 
   const { setUserInformation } = useUserInformation();
 
   return (
     <>
-      <div className="container-md">
+      <div id="user-form-container" className="container-md">
         <header className="header-primary flex-and-align">
           <h3>User Info Form</h3>
         </header>
@@ -134,6 +141,8 @@ export const UserInformationForm = () => {
             phoneInputState={phoneInputState}
             setPhoneInputState={setPhoneInputState}
           />
+
+          <ErrorMessage message={phoneErrorMessage} show={showPhoneError} />
 
           <div className="submit-button-container">
             <TextInput

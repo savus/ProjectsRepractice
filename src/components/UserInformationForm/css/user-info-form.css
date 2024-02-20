@@ -1,36 +1,35 @@
-.input-field-container {
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin-top: 20px;
+#user-form-container {
   text-align: center;
 }
 
-.input-field-container .form-left-side,
-.input-field-container .form-right-side {
-  min-width: 270px;
+#user-form-container .user-info-display,
+.input-field-container label,
+.phone-input-container,
+.submit-button-container {
+  margin-top: 20px;
 }
 
-.input-field-container .form-left-side,
-.input-field-container .form-right-side,
-.form-left-side label,
-.form-right-side label {
+.input-field-container .form-left-side {
+  margin-right: 20px;
+}
+
+.input-field-container label {
   display: flex;
   flex-direction: column;
 }
 
-.form-left-side label,
-.form-right-side label {
-  margin-bottom: 10px;
+.input-field-container label input {
+  margin-top: 12px;
 }
 
-.form-left-side input,
-.form-right-side input {
-  margin-top: 10px;
+.input-field-container .error-message {
+  margin: 0;
 }
 
-.user-info-display,
-.phone-input-container,
-.submit-button-container {
-  text-align: center;
-  margin-top: 20px;
+.phone-input-container label:not(:last-child) input {
+  width: 40px;
+}
+
+.phone-input-container label:last-child input {
+  width: 60px;
 }

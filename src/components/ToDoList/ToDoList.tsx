@@ -25,7 +25,7 @@ export const ToDoList = () => {
 
   const formInputErrorMessage = "Item must have more than 0 characters";
 
-  const formInputIsValid = Validations.isListItemValid(newItemInput);
+  const formInputIsValid = Validations.listItemIsValid(newItemInput);
 
   const showFormErrorMessage = submitAttempted && !formInputIsValid;
 
