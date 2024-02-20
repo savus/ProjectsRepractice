@@ -54,4 +54,8 @@
   #user-form-container .input-field-container {
     flex-direction: column;
   }
+
+  #user-form-container .input-field-container .form-left-side {
+    margin-right: 0;
+  }
 }

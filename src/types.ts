@@ -31,4 +31,5 @@ export type TUserInformation = {
   lastName: string;
   city: string;
   email: string;
+  phoneNumber: string;
 };

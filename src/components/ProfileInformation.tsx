@@ -16,6 +16,7 @@ export const ProfileInformation = () => {
         <div>Last Name: {userInformation?.lastName}</div>
         <div>City: {userInformation?.city}</div>
         <div>Email: {userInformation?.email}</div>
+        <div>Phone #: {userInformation?.phoneNumber}</div>
       </div>
     </>
   );

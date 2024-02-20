@@ -47,9 +47,11 @@ export const UserInformationForm = () => {
     !lastNameIsValid ||
     !emailIsValid ||
     !cityIsValid ||
-    phoneIsValid;
+    !phoneIsValid;
 
   const { setUserInformation } = useUserInformation();
+
+  const stringifiedPhoneNum = phoneInputState.join("");
 
   return (
     <>
@@ -64,12 +66,14 @@ export const UserInformationForm = () => {
           onSubmit={(e) => {
             e.preventDefault();
             setSubmitAttempted(true);
+            console.log("clicked");
             if (!doBadInputsExist) {
               setUserInformation({
                 firstName: firstNameInput,
                 lastName: lastNameInput,
                 city: cityInput,
                 email: emailInput,
+                phoneNumber: stringifiedPhoneNum,
               });
             }
           }}
