@@ -5,6 +5,7 @@ import "./css/responsive.css";
 
 import { LinkItem } from "../shared/Header/LinkItem";
 import { NavbarToggler } from "../shared/Header/NavbarToggler";
+import { DropdownMenu } from "../shared/Header/DropdownMenu";
 
 export const MainHeader = () => {
   return (
@@ -17,7 +18,7 @@ export const MainHeader = () => {
             <LinkItem dataLink="to-do-list" />
             <LinkItem dataLink="portfolio-gallery" />
             <LinkItem dataLink="user-info-form" />
-            <LinkItem dataLink="item 4" />
+            <DropdownMenu />
           </ul>
         </nav>
       </header>
