@@ -3,9 +3,9 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/responsive.css";
 
-import { LinkItem } from "../shared/Header/LinkItem";
-import { NavbarToggler } from "../shared/Header/NavbarToggler";
-import { DropdownMenu } from "../shared/Header/DropdownMenu";
+import { LinkItem } from "./LinkItem";
+import { NavbarToggler } from "./NavbarToggler";
+import { DropdownMenu } from "./DropdownMenu";
 
 export const MainHeader = () => {
   return (

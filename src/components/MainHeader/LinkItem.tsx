@@ -1,6 +1,6 @@
-import { THeaderLinkState } from "../../../types";
-import { capitalizeEachWordInString } from "../../../utils/transformations";
-import { useHeaderState } from "../../providers/HeaderLinkProvider";
+import { THeaderLinkState } from "../../types";
+import { capitalizeEachWordInString } from "../../utils/transformations";
+import { useHeaderState } from "../providers/HeaderLinkProvider";
 
 export const LinkItem = ({ dataLink }: { dataLink: THeaderLinkState }) => {
   const isLinkActive = (input: string) =>
